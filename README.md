@@ -8,16 +8,24 @@ All numbers are **sample data**, produced by small generator functions so the la
 
 ## What's in it
 
-| Section | What it shows |
-|---|---|
-| Overview | Today so far (leads, tasks done, attendance, leave requests, cash collected, new followers), one card per department, and a "Needs attention" list |
-| Social media | Followers, new followers, reach, impressions, engagement rate and posts for all platforms or a single one. Includes reach by platform, share of reach, a card per platform, new followers and top posts |
-| Sales & leads | Leads today, leads by source over time, pipeline funnel, the latest leads and a sales team leaderboard |
-| Tasks & projects | Done today, overdue and due today, workload per person, project progress, and a task board where you can create and move tasks |
-| People | Present, absent, late and on leave today, a breakdown by department, who is out, leave applications you can approve or decline, and the attendance rate trend |
-| Finance | Cash on hand by account, money coming in (receivables), money owed (payables), cash in vs out, cash balance and spending by category |
+The goal is one tool that replaces ClickUp, the HR software, the social media scheduler, the influencer tool, the accounting/invoicing software and Slack.
 
-The date range control (Today, Last 7 days, Last 30 days, Custom) drives every period metric. Deltas compare against the previous period of the same length. Today's numbers compare against yesterday at the same time.
+| Section | What it does | Replaces |
+|---|---|---|
+| Dashboard | Today so far, performance chart, health meters, publishing today, client health, a "Needs attention" list, and quick actions | — |
+| Clients | Every client as a card with health, retainer, margin and next post. Each client has its own hub: overview, social, content, tasks, campaigns, chat and billing | CRM / spreadsheets |
+| Client portal | A private, read-only page per client: their numbers, posts waiting for their approval, campaign reports and invoices | Report decks, email approvals |
+| Content | Publishing calendar for Tent Communications and every client, a post composer, and an approval flow (draft → client approval → scheduled → published) | Social media posting tool |
+| Influencers | Creator directory with contacts and rates, campaigns with deliverables and payments, campaign reports, work history per creator, and a shareable report link | Influencer management tool |
+| Tasks & projects | Workload per person, project progress, and a task board linked to clients | ClickUp |
+| Messages | Slack-style team spaces, a space per client (client contacts join as guests) and direct messages | Slack |
+| Social media | Metrics for Tent Communications or any client, by platform | Native analytics |
+| Sales & leads | Leads today, by source, funnel, latest leads and team leaderboard | CRM reports |
+| People | Attendance, who is out, leave approvals and attendance trend | HR software |
+| Finance & invoicing | Cash, money in and out, invoices (create, send, record payment), bills and spending | Accounting / invoicing software |
+| Team & access | Invite people, set roles, tick which sections each person can open, preview the app as them, and control client portal and chat access | — |
+
+The date range control (Today, 7 days, 30 days, Custom) drives every period metric. Deltas compare against the previous period of the same length.
 
 ## Building it for real
 
@@ -29,7 +37,8 @@ Everything you need to replace is in the `SAMPLE DATA` block of the `<script>` i
 | `salesDay(day)`, `SOURCES`, `REPS` | Your CRM (lead counts by source, stage counts, won revenue) |
 | `TASKS`, `TEAM`, `PROJECTS` | Your task tool (ClickUp, Notion, Asana…) or your own tasks table |
 | `DEPTS`, `OUT_TODAY`, `LEAVES` | Attendance / HR system |
-| `ACCOUNTS`, `financeDay(day)`, `RECEIVABLES`, `PAYABLES` | Accounting software and bank feeds |
+| `ACCOUNTS`, `financeDay(day)`, `RECEIVABLES`, `PAYABLES`, `INVOICES` | Your own invoices table, plus bank feeds |
+| `CLIENTS`, `POSTS`, `INFLUENCERS`, `CAMPAIGNS`, `CHANNELS`, `USERS`, `GUESTS` | Your own database tables (Supabase). Posting goes out through each platform's publishing API |
 
 `CONFIG` at the top of the script sets the company name, the currency symbol and the weekend days (Fri and Sat by default).
 

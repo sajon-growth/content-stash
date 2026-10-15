@@ -28,7 +28,7 @@
   --tip: #18181b;
   --tip-ink: #f4f4f5;
 
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
   --o1: #c7c2f6; --o2: #9d94ee; --o3: #7468e6; --o4: #5b4fe0;
   --good: #16a34a; --warn: #f5a524; --serious: #ec835a; --crit: #dc3b3b; --neutral: #a1a1aa;
   --good-ink: #15803d; --warn-ink: #9a6206; --crit-ink: #c02a2a;
@@ -45,7 +45,7 @@
     --bg: #09090b; --side: #111114; --main: #0d0d10; --card: #15151a; --sunk: #1b1b21;
     --ink: #f4f4f5; --ink-2: #b4b4bd; --muted: #7c7c88; --line: #24242b; --line-2: #31313a;
     --accent: #8f86f0; --accent-soft: #221f3d; --accent-ink: #b3adf6; --cta: #f4f4f5; --cta-ink: #18181b; --tip: #2a2a32; --tip-ink: #f4f4f5;
-    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
     --o1: #2f2a5c; --o2: #4a4194; --o3: #6a5fd0; --o4: #8f86f0;
     --good-ink: #4ade80; --warn-ink: #fbbf24; --crit-ink: #f87171;
     --good-soft: #0f2418; --warn-soft: #2a2010; --crit-soft: #2c1414; --serious-soft: #2c1a12; --neutral-soft: #1e1e24;
@@ -57,7 +57,7 @@
   --bg: #09090b; --side: #111114; --main: #0d0d10; --card: #15151a; --sunk: #1b1b21;
   --ink: #f4f4f5; --ink-2: #b4b4bd; --muted: #7c7c88; --line: #24242b; --line-2: #31313a;
   --accent: #8f86f0; --accent-soft: #221f3d; --accent-ink: #b3adf6; --cta: #f4f4f5; --cta-ink: #18181b; --tip: #2a2a32; --tip-ink: #f4f4f5;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
   --o1: #2f2a5c; --o2: #4a4194; --o3: #6a5fd0; --o4: #8f86f0;
   --good-ink: #4ade80; --warn-ink: #fbbf24; --crit-ink: #f87171;
   --good-soft: #0f2418; --warn-soft: #2a2010; --crit-soft: #2c1414; --serious-soft: #2c1a12; --neutral-soft: #1e1e24;
@@ -294,6 +294,122 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
 #tip .tr b { font-variant-numeric: tabular-nums; font-weight: 600; }
 #toast { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%); background: var(--cta); color: var(--cta-ink); padding: 10px 16px; border-radius: 12px; font-weight: 500; font-size: 13.5px; z-index: 120; }
 
+/* ---------- agency modules ---------- */
+.nav { display: flex; flex-direction: column; gap: 18px; }
+.count { margin-left: auto; font-size: 12px; font-weight: 600; color: var(--crit-ink); background: var(--crit-soft); border: 1px solid var(--crit-line); min-width: 22px; height: 20px; border-radius: 999px; display: inline-grid; place-items: center; padding: 0 6px; }
+.count.soft { color: var(--accent-ink); background: var(--accent-soft); border-color: var(--accent-line); }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--line); overflow-x: auto; }
+.tabs button { border: 0; background: none; padding: 10px 12px; color: var(--ink-2); font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.tabs button:hover { color: var(--ink); }
+.tabs button[aria-selected="true"] { color: var(--ink); border-color: var(--ink); font-weight: 600; }
+.tabs .count { margin-left: 0; height: 18px; min-width: 20px; font-size: 11.5px; }
+.link-btn { border: 0; background: none; padding: 0; color: var(--accent-ink); font-weight: 500; font-size: 13px; text-align: left; }
+.link-btn:hover { text-decoration: underline; }
+.sel-sm { background: var(--card); border: 1px solid var(--line-2); border-radius: 10px; padding: 6px 10px; font-size: 13px; }
+.hub { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.hub h2 { margin: 0; font-size: 21px; font-weight: 600; letter-spacing: -.02em; }
+.hub .meta { color: var(--muted); font-size: 13px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 2px; }
+.hub .acts { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+.hub .btn { display: inline-flex; align-items: center; gap: 6px; }
+.hub .btn svg.i { width: 15px; height: 15px; }
+.logo-sq { --c: var(--accent); width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-weight: 600; font-size: 13px; flex: none; color: var(--ink); background: color-mix(in srgb, var(--c) 16%, var(--card)); border: 1px solid color-mix(in srgb, var(--c) 34%, var(--card)); }
+.logo-sq.lg { width: 48px; height: 48px; border-radius: 14px; font-size: 15px; }
+.logo-sq.sm { width: 26px; height: 26px; border-radius: 8px; font-size: 10.5px; }
+.logo-sq.xs { width: 18px; height: 18px; border-radius: 5px; font-size: 8.5px; }
+.ccards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 14px; }
+.ccard { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: flex; flex-direction: column; gap: 14px; text-align: left; min-width: 0; }
+.ccard:hover { border-color: var(--line-2); box-shadow: 0 4px 16px rgba(24,24,27,.05); }
+.ccard .stats, .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; font-size: 12.5px; }
+.ccard .stats span, .mini-grid span { color: var(--muted); display: block; }
+.ccard .stats b, .mini-grid b { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.av-stack { display: inline-flex; }
+.av-stack .av { margin-left: -5px; box-shadow: 0 0 0 2px var(--card); }
+.av-stack .av:first-child { margin-left: 0; }
+.stars { color: var(--warn); letter-spacing: 1px; font-size: 13px; white-space: nowrap; }
+.stars .off { color: var(--line-2); }
+.dots { display: inline-flex; gap: 2px; flex: none; vertical-align: middle; }
+.dots .sw { width: 7px; height: 7px; border-radius: 50%; }
+.sel { user-select: all; font-size: 13px; overflow-wrap: anywhere; flex: 1; text-align: right; }
+
+/* calendar */
+.cal-wrap { overflow-x: auto; margin-inline: -2px; }
+.cal { display: grid; grid-template-columns: repeat(7, minmax(92px, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); min-width: 690px; border-radius: 10px; overflow: hidden; }
+.cal-hd { padding: 8px 10px; font-size: 12.5px; color: var(--muted); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--main); }
+.cal-day { min-height: 116px; padding: 6px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.cal-day.out { background: var(--main); }
+.cal-day.out .dn { color: var(--muted); }
+.cal-day .dn { font-size: 12.5px; font-weight: 500; padding: 1px 6px; align-self: flex-start; border-radius: 6px; }
+.cal-day.today .dn { background: var(--cta); color: var(--cta-ink); }
+.cal-chip { border: 0; border-radius: 6px; padding: 3px 6px; font-size: 11.5px; display: flex; align-items: center; gap: 5px; text-align: left; color: var(--ink); min-width: 0; border-left: 3px solid var(--neutral); background: var(--sunk); }
+.cal-chip span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.cal-chip:hover { filter: brightness(.97); }
+.more { font-size: 11.5px; color: var(--muted); padding-left: 4px; }
+.st-draft { background: var(--sunk) !important; border-left-color: var(--neutral) !important; }
+.st-review { background: var(--warn-soft) !important; border-left-color: var(--warn) !important; }
+.st-changes { background: var(--serious-soft) !important; border-left-color: var(--serious) !important; }
+.st-scheduled { background: var(--accent-soft) !important; border-left-color: var(--accent) !important; }
+.st-published { background: var(--good-soft) !important; border-left-color: var(--good) !important; }
+.legend i[class^="st-"] { width: 10px; height: 10px; border-left: 3px solid; border-radius: 3px; }
+
+/* chat */
+.chat { display: grid; grid-template-columns: 260px minmax(0, 1fr); height: clamp(520px, calc(100vh - 200px), 920px); background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.chat.embed { height: 580px; grid-template-columns: minmax(0, 1fr); }
+.chat-side { border-right: 1px solid var(--line); padding: 14px 8px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; background: var(--main); }
+.chat-side .nav-label { padding-bottom: 4px; }
+.chan { display: flex; align-items: center; gap: 8px; width: 100%; border: 0; background: none; padding: 6px 10px; border-radius: 8px; color: var(--ink-2); text-align: left; font-size: 13.5px; }
+.chan .av { width: 20px; height: 20px; font-size: 8.5px; }
+.chan .hash { width: 18px; text-align: center; color: var(--muted); }
+.chan .cn { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.chan:hover { background: var(--sunk); }
+.chan[aria-current="true"] { background: var(--card); color: var(--ink); font-weight: 600; box-shadow: 0 0 0 1px var(--line); }
+.chan.unread { color: var(--ink); font-weight: 600; }
+.chan .count { height: 18px; min-width: 20px; font-size: 11px; color: var(--accent-ink); background: var(--accent-soft); border-color: var(--accent-line); }
+.chat-main { display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+.chat-h { padding: 14px 18px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.msgs { flex: 1; overflow-y: auto; padding: 18px; display: flex; flex-direction: column; gap: 16px; min-height: 0; }
+.msg { display: flex; gap: 11px; align-items: flex-start; }
+.msg-h { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.msg-h b { font-weight: 600; }
+.msg-h .pill { padding: 0 7px; font-size: 11px; }
+.msg-t { color: var(--ink); overflow-wrap: anywhere; white-space: pre-wrap; line-height: 1.5; }
+.mention { color: var(--accent-ink); background: var(--accent-soft); border-radius: 4px; padding: 0 3px; font-weight: 500; }
+.file { display: inline-flex; align-items: center; gap: 8px; margin-top: 7px; border: 1px solid var(--line); border-radius: 10px; padding: 7px 11px; font-size: 13px; background: var(--main); max-width: 100%; overflow-wrap: anywhere; }
+.file svg.i { width: 15px; height: 15px; color: var(--muted); }
+.day-div { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12px; }
+.day-div::before, .day-div::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.composer { display: flex; gap: 8px; padding: 12px 14px; border-top: 1px solid var(--line); align-items: flex-end; }
+.composer textarea { flex: 1; resize: none; border: 1px solid var(--line-2); border-radius: 12px; padding: 9px 12px; background: var(--card); min-height: 40px; max-height: 140px; min-width: 0; }
+.ghost-attach { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--ink-2); cursor: pointer; flex: none; }
+.ghost-attach:hover { background: var(--sunk); }
+
+/* menus, banners, sharing */
+.menu-wrap { position: relative; }
+.menu { position: absolute; right: 0; top: calc(100% + 6px); background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 14px 36px rgba(0,0,0,.14); padding: 6px; min-width: 220px; z-index: 60; display: flex; flex-direction: column; }
+.menu button { border: 0; background: none; text-align: left; padding: 9px 10px; border-radius: 8px; display: flex; gap: 10px; align-items: center; font-size: 13.5px; color: var(--ink); }
+.menu button:hover { background: var(--sunk); }
+.viewas { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 12px; background: var(--accent-soft); border: 1px solid var(--accent-line); color: var(--accent-ink); font-size: 13.5px; flex-wrap: wrap; }
+.viewas .btn { margin-left: auto; }
+.viewas svg.i { width: 16px; height: 16px; }
+#viewAsBar:empty { display: none; }
+.share { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; background: var(--card); border: 1px dashed var(--line-2); border-radius: 12px; padding: 10px 12px; }
+.share code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 12.5px; user-select: all; overflow-wrap: anywhere; flex: 1; min-width: 0; }
+.share svg.i { width: 16px; height: 16px; color: var(--muted); }
+#shareSlot:empty { display: none; }
+.portal { display: flex; flex-direction: column; gap: 16px; padding: 20px; border-radius: 20px; border: 1px solid var(--line); background: var(--main); }
+.portal-h { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.mchips { display: flex; flex-wrap: wrap; gap: 4px; min-width: 300px; }
+.mchip { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 2px 9px 2px 5px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--ink-2); cursor: pointer; background: var(--card); }
+.mchip:has(input:checked) { background: var(--accent-soft); border-color: var(--accent-line); color: var(--accent-ink); }
+.mchip:has(input:disabled) { opacity: .7; cursor: default; }
+.mchip input, .switch input { margin: 0; accent-color: var(--accent); }
+.switch { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--ink-2); cursor: pointer; }
+.checks { display: flex; flex-wrap: wrap; gap: 6px; }
+.fld textarea { background: var(--card); border: 1px solid var(--line-2); border-radius: 10px; padding: 9px 11px; font-size: 14px; font-weight: 400; color: var(--ink); resize: vertical; }
+dialog.wide { width: min(760px, calc(100vw - 32px)); }
+.lines input { width: 100%; background: var(--card); border: 1px solid var(--line-2); border-radius: 8px; padding: 6px 8px; font-size: 13px; color: var(--ink); }
+.lines td { padding: 6px 4px; }
+.inv-doc { border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 18px; background: var(--card); }
+
 @media (max-width: 1240px) {
   .c3 { grid-column: span 6; } .c4, .c5, .c7, .c8, .c9 { grid-column: span 12; } .c6 { grid-column: span 6; }
   .aside { grid-column: span 12; display: grid !important; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
@@ -303,8 +419,12 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
 @media (max-width: 900px) {
   .app { grid-template-columns: minmax(0, 1fr); }
   .side { position: sticky; top: 0; height: auto; z-index: 30; padding: 10px 16px; flex-direction: row; align-items: center; gap: 14px; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
-  .nav-label, .side-card, .me, .brand span { display: none; }
-  .nav-group { flex-direction: row; }
+  .side .nav-label, .side-card, .me, .brand span { display: none; }
+  .nav, .nav .nav-group { flex-direction: row; gap: 2px; }
+  .chat { grid-template-columns: minmax(0, 1fr); height: auto; }
+  .chat-side { max-height: 220px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .msgs { max-height: 60vh; }
+  .top-r .menu-wrap { order: -1; }
   .nav a { white-space: nowrap; padding: 7px 10px; }
   .top { padding: 14px 16px; }
   .search { display: none; }
@@ -329,10 +449,7 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
 <div class="app">
   <aside class="side">
     <div class="brand"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M12 7v13"/></svg></span><span>Tentcomm</span></div>
-    <div class="nav-group">
-      <div class="nav-label">Overview</div>
-      <nav class="nav nav-group" id="nav" aria-label="Departments"></nav>
-    </div>
+    <nav class="nav" id="nav" aria-label="Main"></nav>
     <div class="side-card">
       <b>Sample data</b>
       <p>Every number here is generated for the mockup. Connect each section to its real source when you build it.</p>
@@ -350,11 +467,21 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
           <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           <input id="globalSearch" placeholder="Search tasks…" aria-label="Search tasks">
         </form>
+        <div class="menu-wrap" id="createWrap"><button class="btn primary" type="button" id="createBtn" aria-haspopup="true">+ Create</button>
+          <div class="menu" id="createMenu" hidden>
+            <button type="button" data-create="task"><svg class="i" viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg>Task</button>
+            <button type="button" data-create="post"><svg class="i" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Scheduled post</button>
+            <button type="button" data-create="invoice"><svg class="i" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>Invoice</button>
+            <button type="button" data-create="campaign"><svg class="i" viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>Influencer campaign</button>
+            <button type="button" data-create="influencer"><svg class="i" viewBox="0 0 24 24"><path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>Influencer</button>
+            <button type="button" data-create="space"><svg class="i" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Chat space</button>
+          </div></div>
         <button class="icon-btn" type="button" data-go="overview" aria-label="Needs attention"><svg class="i" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg><span class="pip"></span></button>
         <span class="av lg" title="CEO">CE</span>
       </div>
     </header>
     <div class="content">
+      <div id="viewAsBar"></div>
       <div class="bar">
         <div class="bar-l">
           <div class="seg" id="rangeSeg" role="group" aria-label="Date range">
@@ -379,6 +506,7 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
 </div>
 
 <div id="tip" role="tooltip" hidden></div>
+<dialog id="dlg"></dialog>
 <div id="toast" role="status" hidden></div>
 
 <dialog id="taskDlg">
@@ -393,7 +521,10 @@ dialog::backdrop { background: rgba(9, 9, 11, .35); backdrop-filter: blur(2px); 
       <label class="fld">Priority<select id="tPriority"><option>High</option><option selected>Medium</option><option>Low</option></select></label>
       <label class="fld">Due date<input type="date" id="tDue" required></label>
     </div>
-    <label class="fld">Status<select id="tStatus"></select></label>
+    <div class="fld-row">
+      <label class="fld">Client<select id="tClient"></select></label>
+      <label class="fld">Status<select id="tStatus"></select></label>
+    </div>
     <div class="err" id="tErr" hidden></div>
     <div class="acts">
       <button class="btn" type="button" id="tCancel">Cancel</button>
@@ -465,23 +596,23 @@ const PLATFORMS = [
   { id: 'x',         name: 'X',         color: 'var(--s6)', base: 9310,  nf: 11, reach: 4300,  er: 0.019 },
 ];
 const socialMemo = new Map();
-function socialDay(p, d) {
-  const k = p.id + d; if (socialMemo.has(k)) return socialMemo.get(k);
-  const r = R('s', p.id, d), r2 = R('s2', p.id, d), f = frac(d);
+function socialDay(p, d, a = ACCT_TENT) {
+  const k = a.id + p.id + d; if (socialMemo.has(k)) return socialMemo.get(k);
+  const r = R('s', a.id, p.id, d), r2 = R('s2', a.id, p.id, d), f = frac(d), sc = a.scale;
   const wave = 1 + 0.15 * Math.sin(d / 5 + PLATFORMS.indexOf(p));
   const trend = 1 + (d - T) * 0.002;
-  const reach = Math.round(p.reach * wave * trend * (0.75 + 0.5 * r) * f);
+  const reach = Math.round(p.reach * sc * wave * trend * (0.75 + 0.5 * r) * f);
   const engagements = Math.round(reach * p.er * (0.7 + 0.6 * r2));
   const o = {
     reach, engagements,
     impressions: Math.round(reach * (1.4 + 0.4 * r2)),
-    newFollowers: Math.round(p.nf * wave * trend * (0.6 + 0.8 * r) * f),
+    newFollowers: Math.round(p.nf * sc * wave * trend * (0.6 + 0.8 * r) * f),
     posts: f < 1 ? (r2 < 0.5 ? 1 : 0) : (r2 < 0.3 ? 0 : r2 < 0.8 ? 1 : 2),
     clicks: Math.round(engagements * 0.22),
   };
   socialMemo.set(k, o); return o;
 }
-function followersAt(p, end) { let f = p.base; for (let d = T - 180; d <= end; d++) f += socialDay(p, d).newFollowers; return f; }
+function followersAt(p, end, a = ACCT_TENT) { let f = Math.round(p.base * a.scale); for (let d = T - 180; d <= end; d++) f += socialDay(p, d, a).newFollowers; return f; }
 
 const SOURCES = [
   { name: 'Meta Ads', w: .26, color: 'var(--s1)' }, { name: 'Google Ads', w: .22, color: 'var(--s2)' },
@@ -622,7 +753,10 @@ const state = {
   start: T - 6, end: T,
   platform: 'all',
   ovMetric: 'leads',
-  taskFilter: { assignee: '', status: '', q: '' },
+  taskFilter: { assignee: '', status: '', q: '', client: '' },
+  param: null, clientTab: 'overview', socialAcct: 'tent', viewAs: null,
+  contentFilter: { acct: '', status: '' }, calMonth: { y: NOW.getFullYear(), m: NOW.getMonth() },
+  inflTab: 'campaigns', inflFilter: { q: '', niche: '', plat: '' }, chan: 'general', finTab: 'overview', invFilter: { client: '', status: '' },
 };
 function applyRange() {
   if (state.range === 'today') { state.start = state.end = T; }
@@ -684,6 +818,9 @@ const IC = {
   arrowUR: '<path d="M7 17L17 7M8 7h9v9"/>',
   sparkle: '<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/>',
   file: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/>',
+  star: '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>',
+  chat: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>',
   box: '<path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.7z"/>',
 };
 const icon = (k, cls = 'i') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
@@ -857,10 +994,10 @@ function toast(msg) { const t = document.getElementById('toast'); t.textContent 
 /* =====================================================================
    Derived metrics
    ===================================================================== */
-function socialTotals(plats, s = state.start, e = state.end) {
+function socialTotals(plats, s = state.start, e = state.end, a = ACCT_TENT) {
   const t = { reach: 0, impressions: 0, engagements: 0, newFollowers: 0, posts: 0, clicks: 0 };
-  for (const p of plats) for (let d = s; d <= e; d++) { const o = socialDay(p, d); for (const k in t) t[k] += o[k]; }
-  t.followers = sum(plats.map(p => followersAt(p, e)));
+  for (const p of plats) for (let d = s; d <= e; d++) { const o = socialDay(p, d, a); for (const k in t) t[k] += o[k]; }
+  t.followers = sum(plats.map(p => followersAt(p, e, a)));
   t.er = t.reach ? t.engagements / t.reach : 0;
   return t;
 }
@@ -896,6 +1033,12 @@ function attentionItems() {
   if (pl.length) a.push({ sev: 'warn', st: 'Pending', t: 'Leave applications to review', s: pl.map(l => l.name.split(' ')[0]).join(', '), area: 'People', amt: `${pl.length} requests`, go: 'hr' });
   const nn = OUT_TODAY.filter(o => o.kind === 'absent');
   if (nn.length) a.push({ sev: 'serious', st: 'Absent', t: 'Absent without approved leave', s: nn.map(o => o.name).join(', '), area: 'People', amt: `${nn.length} people`, go: 'hr' });
+  const rv = POSTS.filter(p => p.status === 'review');
+  if (rv.length) a.push({ sev: 'warn', st: 'With clients', t: 'Posts waiting for client approval', s: [...new Set(rv.map(p => acctShort(p.acct)))].join(', '), area: 'Content', amt: `${rv.length} posts`, go: 'content' });
+  const ch = POSTS.filter(p => p.status === 'changes');
+  if (ch.length) a.push({ sev: 'serious', st: 'Changes', t: 'Clients asked for changes', s: [...new Set(ch.map(p => acctShort(p.acct)))].join(', '), area: 'Content', amt: `${ch.length} posts`, go: 'content' });
+  const dr = CAMPAIGNS.flatMap(c => c.members.flatMap(m => m.dels.filter(d => d.status === 'In review').map(() => c.name)));
+  if (dr.length) a.push({ sev: 'warn', st: 'In review', t: 'Influencer content to review', s: [...new Set(dr)].join(', '), area: 'Influencers', amt: `${dr.length} pieces`, go: 'influencers' });
   const order = { crit: 0, serious: 1, warn: 2 };
   return a.sort((x, y) => order[x.sev] - order[y.sev]);
 }
@@ -903,20 +1046,6 @@ function attentionItems() {
 /* =====================================================================
    VIEWS
    ===================================================================== */
-const VIEWS = {
-  overview: { name: 'Dashboard', title: 'Dashboard', ic: 'overview' },
-  social: { name: 'Social media', title: 'Social media', ic: 'social' },
-  sales: { name: 'Sales & leads', title: 'Sales & leads', ic: 'sales' },
-  tasks: { name: 'Tasks', title: 'Tasks & projects', ic: 'tasks' },
-  hr: { name: 'People', title: 'People & attendance', ic: 'hr' },
-  finance: { name: 'Finance', title: 'Finance', ic: 'finance' },
-};
-function renderNav() {
-  const counts = { tasks: overdueTasks().length, hr: pendingLeaves().length, finance: RECEIVABLES.filter(r => r.due < T).length };
-  q('#nav').innerHTML = Object.entries(VIEWS).map(([id, v]) =>
-    `<a href="#${id}" data-view="${id}" ${state.view === id ? 'aria-current="page"' : ''}>${icon(v.ic)}${v.name}${counts[id] ? `<span class="count" title="Needs attention">${counts[id]}</span>` : ''}</a>`).join('');
-}
-
 /* ---------- OVERVIEW ---------- */
 const OV_METRICS = {
   leads: { name: 'Leads', fn: d => salesDay(d).leads, fmt: v => fmtN(v) },
@@ -967,6 +1096,8 @@ function vOverview() {
         ${healthCard('Tasks on track', `${open.length} open tasks`, onTrack, 'var(--s2)', [`${open.length - od.length} on schedule`, `${od.length} overdue`], 'tasks', 'tasks')}
         ${healthCard('Invoices on time', `${moneyK(recv)} receivable`, recvOk, 'var(--s1)', [`${moneyK(recv - recvOD)} not due`, `${moneyK(recvOD)} overdue`], 'finance', 'file')}
       </div>
+
+      ${overviewAgency()}
 
       <article class="card">
         <div class="card-h"><h3>Needs attention</h3><span class="sub">${attn.length} items</span></div>
@@ -1025,87 +1156,6 @@ function afterOverview() {
 }
 
 /* ---------- SOCIAL ---------- */
-function vSocial() {
-  const sel = state.platform === 'all' ? PLATFORMS : PLATFORMS.filter(p => p.id === state.platform);
-  const pv = prev();
-  const t = socialTotals(sel), tp = socialTotals(sel, pv.s, pv.e);
-  const b = buckets();
-  const color = sel.length === 1 ? sel[0].color : 'var(--accent)';
-  const perPlat = PLATFORMS.map(p => ({ p, t: socialTotals([p]), tp: socialTotals([p], pv.s, pv.e) }));
-  const totalReach = sum(perPlat.map(x => x.t.reach)) || 1;
-  const POST_T = ['Behind the scenes: our team at the expo', 'Client story: 3x leads in 60 days', 'Product walkthrough in 45 seconds', '5 mistakes to avoid this quarter', 'Meet the team: operations', 'Live Q&A replay', 'Before/after: website revamp', 'We’re hiring! Join the sales team', 'Weekend offer announcement', 'Founder’s note on our next chapter'];
-  const posts = [], len = state.end - state.start + 1;
-  for (let k = 0; k < 14; k++) {
-    const p = sel[Math.floor(R('pp', state.start, state.end, k) * sel.length)];
-    const d = state.start + Math.floor(R('pd', state.start, k) * len);
-    const base = socialDay(p, d).reach || p.reach * 0.3;
-    const reach = Math.round(base * (0.4 + 1.6 * R('pr', d, k)));
-    posts.push({ p, d, title: POST_T[Math.floor(R('pt', d, k) * POST_T.length)], reach, eng: Math.round(reach * p.er * (0.8 + R('pe', k))) });
-  }
-  const top = [...new Map(posts.sort((a, c) => a.reach - c.reach).map(x => [x.title, x])).values()].sort((a, c) => c.reach - a.reach).slice(0, 6);
-
-  return `<div class="stack">
-    <div class="chips" role="group" aria-label="Platform">
-      <button class="chip-btn" data-plat="all" aria-pressed="${state.platform === 'all'}">All platforms</button>
-      ${PLATFORMS.map(p => `<button class="chip-btn" data-plat="${p.id}" aria-pressed="${state.platform === p.id}">${sw(p.color)}${p.name}</button>`).join('')}
-    </div>
-    <div class="kpis six">
-      ${kpi({ ic: 'users', label: 'Followers', value: fmtK(t.followers), d: `<span class="delta up">+${fmtN(t.newFollowers)}</span>`, foot: rangeLabel() })}
-      ${kpi({ ic: 'userPlus', label: 'New followers', value: fmtN(t.newFollowers), d: delta(t.newFollowers, tp.newFollowers), spark: b.split(d => sum(sel.map(p => socialDay(p, d).newFollowers))), color })}
-      ${kpi({ ic: 'eye', label: 'Reach', value: fmtK(t.reach), d: delta(t.reach, tp.reach), spark: b.split(d => sum(sel.map(p => socialDay(p, d).reach))), color })}
-      ${kpi({ ic: 'layers', label: 'Impressions', value: fmtK(t.impressions), d: delta(t.impressions, tp.impressions), spark: b.split(d => sum(sel.map(p => socialDay(p, d).impressions))), color })}
-      ${kpi({ ic: 'heart', label: 'Engagement rate', value: pct(t.er, 2), d: delta(t.er, tp.er), foot: fmtK(t.engagements) + ' engagements' })}
-      ${kpi({ ic: 'send', label: 'Posts published', value: fmtN(t.posts), d: delta(t.posts, tp.posts), foot: fmtK(t.clicks) + ' link clicks' })}
-    </div>
-    <div class="grid">
-      <article class="card c8">
-        <div class="card-h"><h3>Reach ${sel.length > 1 ? 'by platform' : 'on ' + sel[0].name}</h3><span class="sub">${byUnit(b)}</span></div>
-        ${legend(sel.map(p => ({ name: p.name, color: p.color })))}
-        <div class="chart" data-chart="soc-reach"></div>
-      </article>
-      <article class="card c4">
-        <div class="card-h"><h3>Share of reach</h3><span class="sub">${rangeLabel()}</span></div>
-        <div class="list">${[...perPlat].sort((a, c) => c.t.reach - a.t.reach).map(x => `
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div class="row" style="font-size:13.5px"><span style="display:inline-flex;align-items:center;gap:8px">${sw(x.p.color)}${x.p.name}</span><span class="num"><b style="font-weight:600">${fmtK(x.t.reach)}</b> <span style="color:var(--muted)">${pct(x.t.reach / totalReach, 0)}</span></span></div>
-            ${hbar([{ name: x.p.name, color: x.p.color, v: x.t.reach, label: 'Reach', fmt: fmtN }, { color: 'transparent', v: totalReach - x.t.reach }], totalReach)}
-          </div>`).join('')}</div>
-      </article>
-    </div>
-    <article class="card">
-      <div class="card-h"><h3>Platform performance</h3><span class="sub">Select a platform to focus the page</span></div>
-      <div class="plat-grid">${perPlat.map(x => `
-        <button class="plat ${state.platform === x.p.id ? 'on' : ''}" data-plat="${state.platform === x.p.id ? 'all' : x.p.id}">
-          <div class="plat-h">${sw(x.p.color)}${x.p.name}${delta(x.t.reach, x.tp.reach)}</div>
-          <div class="stats">
-            <div><span>Followers</span><b>${fmtK(x.t.followers)}</b></div><div><span>New</span><b>+${fmtN(x.t.newFollowers)}</b></div><div><span>Reach</span><b>${fmtK(x.t.reach)}</b></div>
-            <div><span>Eng. rate</span><b>${pct(x.t.er, 2)}</b></div><div><span>Posts</span><b>${x.t.posts}</b></div><div><span>Clicks</span><b>${fmtK(x.t.clicks)}</b></div>
-          </div>
-          ${sparkline(b.split(d => socialDay(x.p, d).reach), x.p.color, '')}
-        </button>`).join('')}</div>
-    </article>
-    <div class="grid">
-      <article class="card c7">
-        <div class="card-h"><h3>New followers</h3><span class="sub">${byUnit(b)}</span></div>
-        ${legend(sel.map(p => ({ name: p.name, color: p.color })))}
-        <div class="chart" data-chart="soc-nf"></div>
-      </article>
-      <article class="card c5">
-        <div class="card-h"><h3>Top posts</h3><span class="sub">by reach</span></div>
-        <div class="tbl-wrap"><table><thead><tr><th>Post</th><th class="r">Reach</th><th class="r">Eng.</th></tr></thead><tbody>
-        ${top.map(x => `<tr><td><div style="font-weight:500">${esc(x.title)}</div><div class="sm-muted" style="display:flex;align-items:center;gap:6px">${sw(x.p.color)}${x.p.name} · ${relDay(x.d)}</div></td><td class="r">${fmtK(x.reach)}</td><td class="r">${fmtN(x.eng)}</td></tr>`).join('')}
-        </tbody></table></div>
-      </article>
-    </div>
-  </div>`;
-}
-function afterSocial() {
-  const sel = state.platform === 'all' ? PLATFORMS : PLATFORMS.filter(p => p.id === state.platform);
-  const b = buckets();
-  lineChart(q('[data-chart="soc-reach"]'), { labels: b.labels, series: sel.map(p => ({ name: p.name, color: p.color, values: b.split(d => socialDay(p, d).reach) })), h: 270 });
-  barChart(q('[data-chart="soc-nf"]'), { labels: b.labels, stacked: true, series: sel.map(p => ({ name: p.name, color: p.color, values: b.split(d => socialDay(p, d).newFollowers) })), h: 230, fmt: v => fmtN(v) });
-}
-
 /* ---------- SALES ---------- */
 const FIRST = ['Ahmed', 'Julia', 'Marco', 'Fatima', 'Kenji', 'Sofia', 'Rahim', 'Emma', 'Lucas', 'Tasnim', 'Noah', 'Aisha', 'Victor', 'Hana', 'Imran', 'Zara'];
 const LAST = ['Rahman', 'Silva', 'Haddad', 'Kowalski', 'Tanaka', 'Moreno', 'Islam', 'Brooks', 'Petrov', 'Hossain', 'Klein', 'Varga'];
@@ -1178,7 +1228,7 @@ function vTasks() {
   const open = openTasks(), od = overdueTasks();
   const doneT = doneBetween(T, T), doneR = doneBetween(state.start, state.end), pv = prev(), doneP = doneBetween(pv.s, pv.e);
   const f = state.taskFilter;
-  const shown = TASKS.filter(t => (!f.assignee || t.assignee === f.assignee) && (!f.status || t.status === f.status) && (!f.q || (t.title + ' ' + t.project).toLowerCase().includes(f.q.toLowerCase())));
+  const shown = TASKS.filter(t => (!f.client || taskClient(t) === f.client) && (!f.assignee || t.assignee === f.assignee) && (!f.status || t.status === f.status) && (!f.q || (t.title + ' ' + t.project).toLowerCase().includes(f.q.toLowerCase())));
   const people = TEAM.map(name => {
     const mine = TASKS.filter(t => t.assignee === name);
     const c = st => mine.filter(t => t.status === st).length;
@@ -1187,7 +1237,7 @@ function vTasks() {
   const maxOpen = Math.max(...people.map(p => p.open), 1);
   const card = t => `<div class="tcard">
     <div class="t">${esc(t.title)}</div>
-    <div class="meta"><span class="prio ${t.priority}">${t.priority}</span><span>${esc(t.project)}</span></div>
+    <div class="meta"><span class="prio ${t.priority}">${t.priority}</span><span class="who" style="gap:5px">${logoSq(acctOf(taskClient(t)), 'xs')}${esc(acctShort(taskClient(t)))}</span><span>· ${esc(t.project)}</span></div>
     <div class="row"><span class="who" style="font-size:13px">${av(t.assignee)}<span>${esc(t.assignee.split(' ')[0])}</span></span>${t.status === 'done' ? pill('good', 'Done ' + relLow(t.doneAt)) : dueChip(t.due)}</div>
     <label class="row" style="font-size:12.5px;color:var(--muted)">Move to
       <select data-move="${t.id}" aria-label="Status for ${attr(esc(t.title))}">${STATUSES.map(s => `<option value="${s.id}" ${s.id === t.status ? 'selected' : ''}>${s.name}</option>`).join('')}</select>
@@ -1225,9 +1275,10 @@ function vTasks() {
       <div class="card-h"><h3>Task board</h3><span class="sub">${shown.length} of ${TASKS.length} tasks</span></div>
       <div class="toolbar">
         <input id="fQ" type="search" placeholder="Search tasks or projects" value="${attr(esc(f.q))}" aria-label="Search tasks">
+        <select id="fClient" aria-label="Filter by client"><option value="">All clients</option>${[ACCT_TENT, ...CLIENTS].map(a => `<option value="${a.id}" ${f.client === a.id ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select>
         <select id="fAssignee" aria-label="Filter by person"><option value="">Everyone</option>${TEAM.map(n => `<option ${f.assignee === n ? 'selected' : ''}>${n}</option>`).join('')}</select>
         <select id="fStatus" aria-label="Filter by status"><option value="">All statuses</option>${STATUSES.map(s => `<option value="${s.id}" ${f.status === s.id ? 'selected' : ''}>${s.name}</option>`).join('')}</select>
-        ${f.assignee || f.status || f.q ? '<button class="btn sm" id="fClear" type="button">Clear filters</button>' : ''}
+        ${f.assignee || f.status || f.q || f.client ? '<button class="btn sm" id="fClear" type="button">Clear filters</button>' : ''}
         <button class="btn primary" id="newTask" type="button">+ New task</button>
       </div>
       <div class="board">${STATUSES.map(s => {
@@ -1295,7 +1346,7 @@ function afterHR() {
 }
 
 /* ---------- FINANCE ---------- */
-function vFinance() {
+function vFinanceOverview() {
   const pv = prev(), t = financeTotals(), tp = financeTotals(pv.s, pv.e);
   const recv = sum(RECEIVABLES.map(r => r.amt)), recvOD = sum(RECEIVABLES.filter(r => r.due < T).map(r => r.amt));
   const recv7 = sum(RECEIVABLES.filter(r => r.due >= T && r.due <= T + 7).map(r => r.amt));
@@ -1360,50 +1411,965 @@ function afterFinance() {
 }
 
 /* =====================================================================
+   AGENCY DATA — clients, content, influencers, campaigns, chat, invoices, users
+   (sample data; each block maps to a database table when you build)
+   ===================================================================== */
+const ACCT_TENT = { id: 'tent', name: 'Tent Communications', short: 'Tent', scale: 1, plats: PLATFORMS.map(p => p.id), color: 'var(--ink)' };
+const CLIENTS = [
+  { id: 'harbor', name: 'Harbor Foods', industry: 'Food & beverage', retainer: 4500, manager: 'Mei Chen', since: 'Mar 2024', plats: ['facebook', 'instagram', 'tiktok'], scale: .6, color: 'var(--s1)', contact: { name: 'Lena Park', role: 'Marketing Manager', email: 'lena@harborfoods.example' } },
+  { id: 'orbit', name: 'Orbit Telecom', industry: 'Telecom', retainer: 9000, manager: 'Rafi Hasan', since: 'Jan 2023', plats: ['facebook', 'instagram', 'linkedin', 'youtube', 'x'], scale: 1.4, color: 'var(--s2)', contact: { name: 'Arjun Mehra', role: 'Head of Brand', email: 'arjun@orbittelecom.example' } },
+  { id: 'summit', name: 'Summit Apparel', industry: 'Fashion', retainer: 6000, manager: 'Sara Ahmed', since: 'Jun 2024', plats: ['instagram', 'tiktok', 'facebook'], scale: .9, color: 'var(--s3)', contact: { name: 'Chloe Martin', role: 'E-commerce Lead', email: 'chloe@summitapparel.example' } },
+  { id: 'greenleaf', name: 'Greenleaf Pharma', industry: 'Healthcare', retainer: 5200, manager: 'Jonas Weber', since: 'Sep 2024', plats: ['facebook', 'linkedin', 'youtube'], scale: .4, color: 'var(--s4)', contact: { name: 'Dr. Omar Faruk', role: 'Communications Director', email: 'omar@greenleaf.example' } },
+  { id: 'northwind', name: 'Northwind Retail', industry: 'Retail', retainer: 3800, manager: 'Clara Novak', since: 'Feb 2025', plats: ['facebook', 'instagram'], scale: .5, color: 'var(--s5)', contact: { name: 'Ben Carter', role: 'Owner', email: 'ben@northwind.example' } },
+  { id: 'crestline', name: 'Crestline Realty', industry: 'Real estate', retainer: 2800, manager: 'Daniel Okafor', since: 'Apr 2025', plats: ['facebook', 'instagram', 'youtube'], scale: .3, color: 'var(--s6)', contact: { name: 'Maya Lopez', role: 'Sales Director', email: 'maya@crestline.example' } },
+  { id: 'bluepeak', name: 'BluePeak Logistics', industry: 'Logistics', retainer: 3200, manager: 'Ishaan Mehta', since: 'Jul 2025', plats: ['linkedin', 'facebook'], scale: .25, color: 'var(--s7)', contact: { name: 'Henrik Olsen', role: 'Marketing Lead', email: 'henrik@bluepeak.example' } },
+  { id: 'atlas', name: 'Atlas Motors', industry: 'Automotive', retainer: 7500, manager: 'Yusuf Ali', since: 'Nov 2023', plats: ['facebook', 'instagram', 'youtube', 'tiktok'], scale: 1.1, color: 'var(--s8)', contact: { name: 'Sam Reid', role: 'Marketing Manager', email: 'sam@atlasmotors.example' } },
+];
+const clientById = id => CLIENTS.find(c => c.id === id);
+const acctOf = id => id === 'tent' ? ACCT_TENT : clientById(id) || ACCT_TENT;
+const acctPlats = a => PLATFORMS.filter(p => a.plats.includes(p.id));
+const acctShort = id => id === 'tent' ? 'Tent' : acctOf(id).name.split(' ')[0];
+const taskClient = t => t.client || (R('tcl', t.id) < 0.3 ? 'tent' : CLIENTS[Math.floor(R('tcl2', t.id) * CLIENTS.length)].id);
+const COST_PER_HOUR = 30;
+function clientEcon(c) {
+  const hours = Math.round(c.retainer / 50 * (0.55 + 0.6 * R('hrs', c.id)));
+  const cost = hours * COST_PER_HOUR;
+  return { hours, cost, margin: (c.retainer - cost) / c.retainer };
+}
+
+/* ---------- content / publishing ---------- */
+const CAPTIONS = ['New week, new flavours. Which one are you trying first?', 'Behind the scenes of this week’s shoot.', '3 tips to get more from your weekend.', 'Customer story: how we made it happen.', 'Limited-time offer starts Friday.', 'Meet the team that makes it all work.', 'Our top 5 picks this month.', 'Quick tutorial: set it up in 60 seconds.', 'Thank you for 50K followers!', 'Save this post for later.', 'Swipe to see the before and after.', 'Live Q&A this Thursday at 7 PM.'];
+const POST_STATUS = { draft: { n: 'Draft', c: 'neutral' }, review: { n: 'Awaiting approval', c: 'warn' }, changes: { n: 'Changes requested', c: 'serious' }, scheduled: { n: 'Scheduled', c: 'info' }, published: { n: 'Published', c: 'good' } };
+function seedPosts() {
+  const out = []; let n = 0;
+  for (const a of [ACCT_TENT, ...CLIENTS]) {
+    const per = a.id === 'tent' ? 16 : 8, ap = acctPlats(a);
+    for (let k = 0; k < per; k++) {
+      const d = k === 0 ? T : T - 12 + Math.floor(R('pd', a.id, k) * 36), r = R('ps', a.id, k);
+      let plats = ap.filter((p, i) => R('pp', a.id, k, i) < 0.5).map(p => p.id); if (!plats.length) plats = [ap[k % ap.length].id];
+      const status = d < T ? 'published' : d === T ? (r < 0.5 ? 'published' : 'scheduled') : r < 0.45 ? 'scheduled' : r < 0.72 ? 'review' : r < 0.8 ? 'changes' : 'draft';
+      out.push({ id: 'p' + (++n), acct: a.id, plats, day: d, time: `${String(9 + Math.floor(R('ph', a.id, k) * 10)).padStart(2, '0')}:${R('pm', a.id, k) < 0.5 ? '00' : '30'}`, caption: CAPTIONS[Math.floor(R('pc', a.id, k) * CAPTIONS.length)], status, owner: TEAM[Math.floor(R('po', a.id, k) * TEAM.length)] });
+    }
+  }
+  return out;
+}
+let POSTS = store('posts') || seedPosts();
+const savePosts = () => store('posts', POSTS);
+const postSort = (a, b) => a.day - b.day || a.time.localeCompare(b.time);
+const platDots = ids => `<span class="dots" title="${attr(ids.map(id => PLATFORMS.find(p => p.id === id).name).join(', '))}">${ids.map(id => `<i class="sw" style="background:${PLATFORMS.find(p => p.id === id).color}"></i>`).join('')}</span>`;
+const postPill = p => pill(POST_STATUS[p.status].c, POST_STATUS[p.status].n);
+
+/* ---------- influencers + campaigns ---------- */
+const INFLUENCERS_SEED = [
+  ['i1', 'Nabila Hossain', '@nabila.eats', 'Food', 'instagram', 184000, .052, 650], ['i2', 'Marco Silva', '@marcocooks', 'Food', 'tiktok', 412000, .071, 900],
+  ['i3', 'Aisha Karim', '@aishastyle', 'Fashion', 'instagram', 268000, .044, 800], ['i4', 'Julia Moreno', '@julia.fits', 'Fitness', 'instagram', 96000, .063, 400],
+  ['i5', 'Kenji Tanaka', '@kenjitech', 'Tech', 'youtube', 530000, .038, 1500], ['i6', 'Sofia Brooks', '@sofiabeauty', 'Beauty', 'tiktok', 350000, .069, 950],
+  ['i7', 'Imran Haddad', '@imran.drives', 'Auto', 'youtube', 221000, .041, 1100], ['i8', 'Hana Kowalski', '@hanatravels', 'Travel', 'instagram', 143000, .055, 600],
+  ['i9', 'Victor Petrov', '@victorfinance', 'Finance', 'linkedin', 58000, .032, 700], ['i10', 'Zara Islam', '@zaramom', 'Parenting', 'facebook', 122000, .036, 450],
+  ['i11', 'Lucas Klein', '@lucaslifts', 'Fitness', 'tiktok', 189000, .074, 500], ['i12', 'Tasnim Rahman', '@tasnim.home', 'Lifestyle', 'instagram', 77000, .058, 350],
+  ['i13', 'Noah Varga', '@noahgadgets', 'Tech', 'tiktok', 265000, .066, 750], ['i14', 'Emma Brooks', '@emma.wears', 'Fashion', 'tiktok', 158000, .061, 550],
+].map(([id, name, handle, niche, plat, followers, er, rate]) => ({ id, name, handle, niche, plat, followers, er, rate, email: handle.slice(1).replace(/\./g, '') + '@creator.example', phone: '+1 (555) 01' + id.slice(1).padStart(2, '0'), rating: 3 + Math.floor(R('rat', id) * 3), notes: 'Responsive, delivers on time. Prefers briefs a week ahead.' }));
+let INFLUENCERS = [...INFLUENCERS_SEED, ...(store('influencers') || [])];
+const inflById = id => INFLUENCERS.find(x => x.id === id);
+const NICHES = [...new Set(INFLUENCERS_SEED.map(i => i.niche))].sort();
+const DEL_STATUS = { Briefed: 'neutral', 'In production': 'info', 'In review': 'warn', Live: 'good' };
+function buildMembers(c) {
+  const types = ['Reel', 'Story set', 'Post', 'Video', 'Short'];
+  c.members = c.infl.map((iid, k) => {
+    const inf = inflById(iid); const n = 2 + Math.floor(R('dn', c.id, k) * 2);
+    const dels = Array.from({ length: n }, (_, j) => {
+      const due = c.start + Math.round((c.end - c.start) * (j + 1) / (n + 1));
+      const st = c.status === 'Completed' ? 'Live' : c.status === 'Planning' ? 'Briefed' : due < T ? 'Live' : due <= T + 3 ? 'In review' : 'In production';
+      const reach = st === 'Live' ? Math.round(inf.followers * (0.25 + 0.4 * R('rch', c.id, k, j))) : 0;
+      return { type: types[Math.floor(R('dt', c.id, k, j) * types.length)], due, status: st, reach, eng: Math.round(reach * inf.er * (0.8 + 0.4 * R('eg', c.id, k, j))) };
+    });
+    return { inf: iid, fee: inf.rate * n, dels, paid: c.status === 'Completed' || (c.status === 'Active' && k % 2 === 0) };
+  });
+  return c;
+}
+const CAMPAIGNS = [
+  { id: 'c1', name: 'Winter Menu Launch', client: 'harbor', status: 'Active', start: T - 12, end: T + 18, budget: 9000, goal: 'Drive store visits for the new winter menu', infl: ['i1', 'i2', 'i12', 'i8'] },
+  { id: 'c2', name: '5G Everywhere', client: 'orbit', status: 'Active', start: T - 20, end: T + 10, budget: 22000, goal: 'Awareness for 5G home internet', infl: ['i5', 'i13', 'i9', 'i11', 'i4'] },
+  { id: 'c3', name: 'Fall Drop 2026', client: 'summit', status: 'Completed', start: T - 60, end: T - 20, budget: 12000, goal: 'Sell through the fall collection', infl: ['i3', 'i14', 'i6', 'i8'] },
+  { id: 'c4', name: 'Test Drive Weekend', client: 'atlas', status: 'Planning', start: T + 9, end: T + 30, budget: 15000, goal: 'Book test drives for the new SUV', infl: ['i7', 'i5', 'i10'] },
+  { id: 'c5', name: 'Healthy Habits', client: 'greenleaf', status: 'Completed', start: T - 95, end: T - 50, budget: 8000, goal: 'Explain the daily supplements range', infl: ['i4', 'i11', 'i10', 'i12'] },
+  { id: 'c6', name: 'Holiday Deals', client: 'northwind', status: 'Planning', start: T + 20, end: T + 45, budget: 7000, goal: 'Holiday season store traffic', infl: ['i10', 'i12', 'i1'] },
+  ...(store('campaigns') || []),
+].map(buildMembers);
+const campById = id => CAMPAIGNS.find(c => c.id === id);
+function campStats(c) {
+  const dels = c.members.flatMap(m => m.dels);
+  const reach = sum(dels.map(d => d.reach)), eng = sum(dels.map(d => d.eng)), committed = sum(c.members.map(m => m.fee));
+  return { reach, eng, committed, paid: sum(c.members.filter(m => m.paid).map(m => m.fee)), done: dels.filter(d => d.status === 'Live').length, total: dels.length, review: dels.filter(d => d.status === 'In review').length, cpe: eng ? committed / eng : 0 };
+}
+const CAMP_STATUS = { Active: 'info', Planning: 'neutral', Completed: 'good' };
+
+/* ---------- messages ---------- */
+const CHANNELS = [
+  { id: 'general', name: 'general', kind: 'team', topic: 'Company-wide updates' },
+  { id: 'creative', name: 'creative', kind: 'team', topic: 'Design, video and copy reviews' },
+  { id: 'sales-team', name: 'sales-team', kind: 'team', topic: 'Leads, proposals and wins' },
+  { id: 'ops-hr', name: 'ops-and-hr', kind: 'team', topic: 'Office, attendance and leave' },
+  ...CLIENTS.map(c => ({ id: 'cl-' + c.id, name: c.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'), kind: 'client', client: c.id, topic: `${c.name} account` })),
+  ...['Mei Chen', 'Rafi Hasan', 'Yusuf Ali', 'Nadia Karim'].map(n => ({ id: 'dm-' + n.split(' ')[0].toLowerCase(), name: n, kind: 'dm' })),
+  ...(store('channels') || []),
+];
+const chanById = id => CHANNELS.find(c => c.id === id);
+const TEAM_MSGS = {
+  general: [['Nadia Karim', 'Reminder: monthly all-hands is Thursday at 4:00 PM in the big room.', null, -1, 555], ['Rafi Hasan', 'Orbit Telecom renewed for another 12 months. Great work, everyone.', null, -1, 640], ['Mei Chen', 'Welcome @Clara Novak to the sales team!', null, -1, 700], ['Yusuf Ali', 'Expense claims for this month are due by the 25th. Upload receipts in Finance.', null, 0, 560], ['Sara Ahmed', 'Office Wi-Fi is back. Sorry about the morning outage.', null, 0, 610]],
+  creative: [['Jonas Weber', 'First cut of the Harbor Foods winter reel is up for review.', 'harbor-winter-reel-v1.mp4', -1, 600], ['Mei Chen', 'Love it. Can we tighten the first 3 seconds? The hook comes too late.', null, -1, 622], ['Jonas Weber', 'On it. v2 before lunch tomorrow.', null, -1, 630], ['Daniel Okafor', 'Atlas Motors brand kit is updated with the new logo lockups.', 'atlas-brand-kit.zip', 0, 575], ['Jonas Weber', '@Mei Chen v2 is up.', 'harbor-winter-reel-v2.mp4', 0, 650]],
+  'sales-team': [['Nadia Karim', 'Proposal sent to Kite Fitness: monthly retainer plus one campaign.', 'kite-fitness-proposal.pdf', -1, 590], ['Tom Becker', 'Lumen Clinics wants a call on Thursday. Who can join?', null, -1, 660], ['Priya Nair', 'I can. Sending the invite now.', null, -1, 665], ['Omar Siddiqui', 'Closed Brightline Dental: 6-month content package!', null, 0, 600]],
+  'ops-hr': [['Leo Fischer', 'From tomorrow please check in through the dashboard. Paper sheets are retired.', null, -1, 545], ['Sara Ahmed', 'Is the leave form in the dashboard now?', null, 0, 580], ['Leo Fischer', 'Yes: People, then Leave applications. Your manager gets notified.', null, 0, 586]],
+};
+const DM_MSGS = { 'Mei Chen': ['Harbor Foods approved next week’s calendar.', 'Great, thanks!'], 'Rafi Hasan': ['Can you sign off the Orbit invoice before 3?', 'Done.'], 'Yusuf Ali': ['Payroll file is ready for your review.', 'Looks good, go ahead.'], 'Nadia Karim': ['Kite Fitness wants a discount for 12 months. OK to offer 8%?', 'Yes, up to 8%.'] };
+function seedMsgs(ch) {
+  if (ch.kind === 'team') return (TEAM_MSGS[ch.id] || []).map(([a, text, file, d, m]) => ({ a, text, file, day: T + d, m }));
+  if (ch.kind === 'dm') { const [x, y] = DM_MSGS[ch.name] || ['Hi!', 'Hi.']; return [{ a: ch.name, text: x, day: T, m: 590 }, { a: 'You', text: y, day: T, m: 602 }]; }
+  if (ch.kind === 'client') {
+    const c = clientById(ch.client), g = c.contact.name, mg = c.manager, slug = c.id;
+    return [[mg, `Morning ${g.split(' ').slice(-2, -1)[0] || g}! Next week’s content calendar is ready for your approval in the portal.`, null, -1, 580], [g, 'Thanks, I will review it by noon. Can we move the Friday post to Saturday?', null, -1, 615], [mg, 'Done. Moved to Saturday at 11:00.', null, -1, 628], ['Jonas Weber', 'Uploaded three cover options for the next reel.', `${slug}-covers.zip`, 0, 560], [g, 'Option 2 please. Looks great.', null, 0, 601], [mg, `@${g} this month’s report is attached. Reach is up on last month.`, `${slug}-report.pdf`, 0, 640]].map(([a, text, file, d, m]) => ({ a, text, file, day: T + d, m, guest: a === g }));
+  }
+  return [];
+}
+let MSGS_ADDED = store('msgs') || {};
+const UNREAD = { general: 2, creative: 1, 'cl-orbit': 3, 'cl-harbor': 1, 'cl-summit': 2, 'dm-rafi': 1 };
+const chatMsgs = ch => [...seedMsgs(ch), ...(MSGS_ADDED[ch.id] || [])].sort((a, b) => a.day - b.day || a.m - b.m);
+
+/* ---------- invoices ---------- */
+const SERVICES = ['Social media management retainer', 'Content production (reels)', 'Paid ads management', 'Influencer campaign management', 'Photography day'];
+function seedInvoices() {
+  const out = [];
+  for (let k = 0; k < 12; k++) { const c = CLIENTS[k % CLIENTS.length], issued = T - 80 + k * 5; out.push({ id: 'v' + k, no: 'INV-' + (2296 + k), clientId: c.id, issued, due: issued + 14, items: [{ desc: SERVICES[0], qty: 1, rate: c.retainer }], tax: 0, status: 'paid', paidOn: issued + 9 }); }
+  RECEIVABLES.forEach((r, k) => { const c = CLIENTS.find(x => x.name === r.client); out.push({ id: 'r' + k, no: r.inv, clientId: c.id, issued: r.due - 14, due: r.due, items: [{ desc: SERVICES[0], qty: 1, rate: r.amt }], tax: 0, status: 'sent' }); });
+  out.push({ id: 'd1', no: 'INV-2361', clientId: 'harbor', issued: T, due: T + 14, items: [{ desc: 'Content production (reels)', qty: 4, rate: 350 }, { desc: 'Photography day', qty: 1, rate: 900 }], tax: 0, status: 'draft' });
+  return out;
+}
+let INVOICES = store('invoices') || seedInvoices();
+const invTotal = i => Math.round(sum(i.items.map(x => (+x.qty || 0) * (+x.rate || 0))) * (1 + (+i.tax || 0) / 100));
+function invPill(i) { if (i.status === 'draft') return pill('neutral', 'Draft'); if (i.status === 'paid') return pill('good', 'Paid'); return i.due < T ? pill('crit', `Overdue ${T - i.due}d`) : pill('info', 'Sent'); }
+function syncRecv() { RECEIVABLES.splice(0, RECEIVABLES.length, ...INVOICES.filter(i => i.status === 'sent').map(i => ({ client: clientById(i.clientId).name, inv: i.no, amt: invTotal(i), due: i.due }))); }
+const saveInvoices = () => { store('invoices', INVOICES); syncRecv(); };
+const nextInvNo = () => 'INV-' + (Math.max(...INVOICES.map(i => +i.no.slice(4) || 0)) + 1);
+syncRecv();
+
+/* ---------- users + permissions ---------- */
+const MODULES = [['overview', 'Dashboard'], ['clients', 'Clients'], ['content', 'Content'], ['influencers', 'Influencers'], ['tasks', 'Tasks'], ['messages', 'Messages'], ['social', 'Social'], ['sales', 'Sales'], ['hr', 'People'], ['finance', 'Finance']];
+const ALL_MODS = MODULES.map(m => m[0]);
+const ROLES = {
+  Owner: { mods: ALL_MODS, desc: 'Everything, including billing and access' },
+  Admin: { mods: ALL_MODS, desc: 'Everything, and can manage users' },
+  Manager: { mods: ALL_MODS.filter(m => m !== 'finance'), desc: 'All work modules, sees their team' },
+  Staff: { mods: ['overview', 'clients', 'content', 'tasks', 'messages'], desc: 'Their own tasks, clients and chat' },
+  'Sales rep': { mods: ['overview', 'sales', 'clients', 'tasks', 'messages'], desc: 'Leads, pipeline and their tasks' },
+};
+function seedUsers() {
+  const u = (name, title, role, extra = {}) => ({ id: 'u-' + name.toLowerCase().replace(/[^a-z]+/g, ''), name, title, role, email: name === 'You' ? 'Owner account' : name.split(' ')[0].toLowerCase() + '@tentcomm.com', modules: [...ROLES[role].mods], status: 'Active', ...extra });
+  return [u('You', 'CEO', 'Owner'), u('Yusuf Ali', 'Finance & Admin', 'Admin'), u('Mei Chen', 'Account Director', 'Manager'), u('Rafi Hasan', 'Account Manager', 'Manager'), u('Sara Ahmed', 'Content Lead', 'Staff'),
+    u('Jonas Weber', 'Video Editor', 'Staff'), u('Daniel Okafor', 'Designer', 'Staff'), u('Ishaan Mehta', 'Ops Executive', 'Staff', { modules: ['overview', 'tasks', 'messages', 'hr'] }), u('Clara Novak', 'Account Executive', 'Sales rep'),
+    u('Nadia Karim', 'Sales Lead', 'Sales rep'), u('Tom Becker', 'Sales Executive', 'Sales rep', { status: 'Invited' })];
+}
+let USERS = store('users') || seedUsers();
+let GUESTS = store('guests') || CLIENTS.map(c => ({ client: c.id, name: c.contact.name, role: c.contact.role, email: c.contact.email, portal: c.id !== 'bluepeak', chat: true }));
+const saveUsers = () => { store('users', USERS); store('guests', GUESTS); };
+const viewer = () => state.viewAs ? USERS.find(u => u.id === state.viewAs) : null;
+const PARENT = { client: 'clients', portal: 'clients', campaign: 'influencers', influencer: 'influencers' };
+function allowed(view) {
+  const u = viewer(); if (!u) return true;
+  if (view === 'team') return u.role === 'Owner' || u.role === 'Admin';
+  return u.modules.includes(PARENT[view] || view);
+}
+
+/* =====================================================================
+   SHARED AGENCY UI
+   ===================================================================== */
+const logoSq = (a, cls = '') => `<span class="logo-sq ${cls}" style="--c:${a.color}" aria-hidden="true">${a.id === 'tent' ? 'TC' : initials(a.name)}</span>`;
+const tabs = (key, items) => `<div class="tabs" role="tablist">${items.map(([k, l, n]) => `<button type="button" role="tab" data-tab="${key}" data-val="${k}" aria-selected="${state[key] === k}">${l}${n ? ` <span class="count soft">${n}</span>` : ''}</button>`).join('')}</div>`;
+const stars = n => `<span class="stars" aria-label="${n} of 5">${'★'.repeat(n)}<span class="off">${'★'.repeat(5 - n)}</span></span>`;
+function clientHealth(c) {
+  const od = overdueTasks().filter(t => taskClient(t) === c.id).length, e = clientEcon(c);
+  if (RECEIVABLES.some(r => r.client === c.name && r.due < T)) return { c: 'crit', n: 'At risk', why: 'Overdue invoice' };
+  if (od) return { c: 'warn', n: 'Needs attention', why: `${od} overdue task${od > 1 ? 's' : ''}` };
+  if (e.margin < 0.3) return { c: 'warn', n: 'Low margin', why: `${pct(e.margin, 0)} margin this month` };
+  return { c: 'good', n: 'Healthy', why: 'On track' };
+}
+const nextPost = id => POSTS.filter(p => p.acct === id && p.day >= T && p.status !== 'published').sort(postSort)[0];
+function shareBox(url, note) {
+  return `<div class="share">${icon('send')}<code>${esc(url)}</code><button class="btn sm" type="button" data-copy="${attr(url)}">Copy link</button>${note ? `<span class="sm-muted" style="flex-basis:100%">${note}</span>` : ''}</div>`;
+}
+const portalUrl = c => `https://ops.tentcomm.com/portal/${c.id}-${Math.floor(R('tok', c.id) * 1e10).toString(36)}`;
+
+/* generic form dialog */
+const gdlg = document.getElementById('dlg');
+function openDlg(html, onSubmit, after, wide) {
+  gdlg.className = wide ? 'wide' : '';
+  gdlg.innerHTML = `<form class="dlg" novalidate>${html}</form>`;
+  const f = gdlg.firstChild;
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const err = onSubmit(f, e.submitter && e.submitter.value);
+    const el = f.querySelector('.err');
+    if (err) { if (el) { el.textContent = err; el.hidden = false; } } else gdlg.close();
+  });
+  f.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => gdlg.close()));
+  after && after(f);
+  if (gdlg.showModal) gdlg.showModal(); else gdlg.setAttribute('open', '');
+}
+
+/* ---------- post composer ---------- */
+function openPostDialog(p, presetAcct) {
+  const isNew = !p;
+  const d = p || { acct: presetAcct || 'tent', plats: [], day: T + 1, time: '10:00', caption: '', status: 'draft' };
+  openDlg(`<h2>${isNew ? 'Schedule a post' : 'Edit post'}</h2>
+    <label class="fld">Account<select name="acct">${[ACCT_TENT, ...CLIENTS].map(a => `<option value="${a.id}" ${a.id === d.acct ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select></label>
+    <div class="fld">Platforms<div class="checks" data-plats></div></div>
+    <label class="fld">Caption<textarea name="caption" rows="4" maxlength="2200" placeholder="Write the caption…">${esc(d.caption)}</textarea><span class="sm-muted" data-count></span></label>
+    <div class="fld-row"><label class="fld">Date<input type="date" name="day" value="${toISO(d.day)}"></label><label class="fld">Time<input type="time" name="time" value="${d.time}"></label></div>
+    <label class="fld">Media<input type="file" name="media" accept="image/*,video/*"></label>
+    ${isNew ? '' : `<div class="row"><span class="sm-muted">Status</span>${postPill(d)}</div>`}
+    <div class="err" hidden></div>
+    <div class="acts">${isNew ? '' : '<button class="btn" type="submit" value="delete">Delete</button>'}<span style="flex:1"></span><button class="btn" type="button" data-close>Cancel</button><button class="btn" type="submit" value="draft">Save draft</button><button class="btn" type="submit" value="review">Send for approval</button><button class="btn primary" type="submit" value="scheduled">Schedule</button></div>`,
+    (f, btn) => {
+      if (btn === 'delete') { POSTS = POSTS.filter(x => x !== p); savePosts(); toast('Post deleted'); render(); return; }
+      const plats = [...f.querySelectorAll('[data-plats] input:checked')].map(i => i.value);
+      const caption = f.caption.value.trim();
+      if (!caption) return 'Write a caption first.';
+      if (!plats.length) return 'Pick at least one platform.';
+      if (!f.day.value || !f.time.value) return 'Pick a date and time.';
+      const day = fromISO(f.day.value);
+      if (btn === 'scheduled' && day < T) return 'Pick a date from today onward to schedule.';
+      const rec = { acct: f.acct.value, plats, caption, day, time: f.time.value, status: btn };
+      if (isNew) POSTS.push({ id: 'p' + Date.now(), owner: 'You', ...rec }); else Object.assign(p, rec);
+      savePosts(); toast(btn === 'review' ? 'Sent for client approval' : btn === 'scheduled' ? 'Post scheduled' : 'Draft saved'); render();
+    },
+    f => {
+      const box = f.querySelector('[data-plats]'), cnt = f.querySelector('[data-count]');
+      const fill = () => { const a = acctOf(f.acct.value); box.innerHTML = acctPlats(a).map(pl => `<label class="mchip"><input type="checkbox" value="${pl.id}" ${(d.plats.length ? d.plats.includes(pl.id) : true) ? 'checked' : ''}>${pl.name}</label>`).join(''); };
+      const count = () => { cnt.textContent = `${f.caption.value.length} / 2,200 characters`; };
+      fill(); count(); f.acct.addEventListener('change', fill); f.caption.addEventListener('input', count);
+    });
+}
+function setPostStatus(id, st) {
+  const p = POSTS.find(x => x.id === id); if (!p) return;
+  p.status = st === 'scheduled' && p.day < T ? 'published' : st; savePosts();
+  toast(st === 'scheduled' ? 'Approved and scheduled' : 'Changes requested'); render();
+}
+
+/* ---------- invoice dialogs ---------- */
+function openInvoiceDialog(presetClient) {
+  let rows = [{ desc: SERVICES[0], qty: 1, rate: (clientById(presetClient) || CLIENTS[0]).retainer }, { desc: '', qty: 1, rate: 0 }];
+  openDlg(`<h2>New invoice</h2>
+    <div class="fld-row"><label class="fld">Client<select name="client">${CLIENTS.map(c => `<option value="${c.id}" ${c.id === presetClient ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select></label><label class="fld">Invoice number<input name="no" value="${nextInvNo()}"></label></div>
+    <div class="fld-row"><label class="fld">Issue date<input type="date" name="issued" value="${toISO(T)}"></label><label class="fld">Due date<input type="date" name="due" value="${toISO(T + 14)}"></label></div>
+    <div class="fld">Line items<div class="tbl-wrap"><table class="lines"><thead><tr><th>Description</th><th style="width:70px">Qty</th><th style="width:110px">Rate</th><th class="r" style="width:100px">Amount</th></tr></thead><tbody data-lines></tbody></table></div><button class="btn sm" type="button" data-addline style="align-self:flex-start">+ Add line</button></div>
+    <div class="fld-row"><label class="fld">Tax / VAT %<input type="number" name="tax" value="0" min="0" max="100" step="0.5"></label><div class="fld">Total<div class="big" data-total style="font-size:24px"></div></div></div>
+    <div class="err" hidden></div>
+    <div class="acts"><button class="btn" type="button" data-close>Cancel</button><button class="btn" type="submit" value="draft">Save draft</button><button class="btn primary" type="submit" value="sent">Save and send</button></div>`,
+    (f, btn) => {
+      const items = rows.filter(r => r.desc.trim() && +r.qty > 0);
+      if (!items.length) return 'Add at least one line with a description and quantity.';
+      if (!f.no.value.trim()) return 'Give the invoice a number.';
+      if (INVOICES.some(i => i.no === f.no.value.trim())) return 'That invoice number is already used.';
+      const inv = { id: 'n' + Date.now(), no: f.no.value.trim(), clientId: f.client.value, issued: fromISO(f.issued.value), due: fromISO(f.due.value), items: items.map(r => ({ desc: r.desc.trim(), qty: +r.qty, rate: +r.rate })), tax: +f.tax.value || 0, status: btn };
+      INVOICES.unshift(inv); saveInvoices(); toast(btn === 'sent' ? `${inv.no} sent to ${clientById(inv.clientId).name}` : `${inv.no} saved as draft`); render();
+    },
+    f => {
+      const body = f.querySelector('[data-lines]'), tot = f.querySelector('[data-total]');
+      const total = () => { tot.textContent = money(Math.round(sum(rows.map(r => (+r.qty || 0) * (+r.rate || 0))) * (1 + (+f.tax.value || 0) / 100))); rows.forEach((r, i) => { const c = body.querySelector(`[data-amt="${i}"]`); if (c) c.textContent = money((+r.qty || 0) * (+r.rate || 0)); }); };
+      const draw = () => { body.innerHTML = rows.map((r, i) => `<tr><td><input data-i="${i}" data-k="desc" value="${attr(esc(r.desc))}" list="svc" placeholder="Service"></td><td><input data-i="${i}" data-k="qty" type="number" min="0" value="${r.qty}"></td><td><input data-i="${i}" data-k="rate" type="number" min="0" value="${r.rate}"></td><td class="r" data-amt="${i}"></td></tr>`).join('') + `<datalist id="svc">${SERVICES.map(s => `<option value="${s}">`).join('')}</datalist>`; total(); };
+      body.addEventListener('input', e => { const t = e.target; if (t.dataset.i) { rows[+t.dataset.i][t.dataset.k] = t.value; total(); } });
+      f.tax.addEventListener('input', total);
+      f.client.addEventListener('change', () => { if (rows[0].desc === SERVICES[0]) { rows[0].rate = clientById(f.client.value).retainer; draw(); } });
+      f.querySelector('[data-addline]').addEventListener('click', () => { rows.push({ desc: '', qty: 1, rate: 0 }); draw(); });
+      draw();
+    }, true);
+}
+function openInvoiceView(id) {
+  const i = INVOICES.find(x => x.id === id); if (!i) return;
+  const c = clientById(i.clientId), sub = sum(i.items.map(x => x.qty * x.rate));
+  openDlg(`<div class="inv-doc">
+      <div class="row" style="align-items:flex-start"><div><div style="font-weight:700;font-size:18px">Tent Communications</div><div class="sm-muted">Invoice ${esc(i.no)}</div></div>${invPill(i)}</div>
+      <div class="row" style="align-items:flex-start;flex-wrap:wrap"><div><div class="sm-muted">Bill to</div><b style="font-weight:600">${esc(c.name)}</b><div class="sm-muted">${esc(c.contact.name)} · ${esc(c.contact.email)}</div></div>
+      <div style="text-align:right"><div class="sm-muted">Issued ${fmtDay(i.issued, { month: 'short', day: 'numeric', year: 'numeric' })}</div><div class="sm-muted">Due ${fmtDay(i.due, { month: 'short', day: 'numeric', year: 'numeric' })}</div></div></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Description</th><th class="r">Qty</th><th class="r">Rate</th><th class="r">Amount</th></tr></thead><tbody>
+      ${i.items.map(x => `<tr><td>${esc(x.desc)}</td><td class="r">${x.qty}</td><td class="r">${money(x.rate)}</td><td class="r">${money(x.qty * x.rate)}</td></tr>`).join('')}
+      <tr><td colspan="3" class="r sm-muted">Subtotal</td><td class="r">${money(sub)}</td></tr>
+      ${i.tax ? `<tr><td colspan="3" class="r sm-muted">Tax ${i.tax}%</td><td class="r">${money(sub * i.tax / 100)}</td></tr>` : ''}
+      <tr><td colspan="3" class="r"><b>Total</b></td><td class="r"><b style="font-size:16px">${money(invTotal(i))}</b></td></tr></tbody></table></div>
+      ${i.status === 'paid' ? `<div class="sm-muted">Paid on ${fmtDay(i.paidOn || T)}. Thank you.</div>` : '<div class="sm-muted">Bank details and payment link appear here.</div>'}
+    </div>
+    <div class="acts"><button class="btn" type="button" data-close>Close</button>${i.status === 'draft' ? '<button class="btn primary" type="submit" value="send">Mark as sent</button>' : ''}${i.status === 'sent' ? '<button class="btn primary" type="submit" value="paid">Record payment</button>' : ''}</div>`,
+    (f, btn) => {
+      if (btn === 'send') { i.status = 'sent'; toast(`${i.no} marked as sent`); }
+      if (btn === 'paid') { i.status = 'paid'; i.paidOn = T; toast(`Payment recorded for ${i.no}`); }
+      saveInvoices(); render();
+    }, null, true);
+}
+function invoiceTable(list, showClient = true) {
+  return `<div class="tbl-wrap"><table><thead><tr><th>Invoice</th>${showClient ? '<th>Client</th>' : ''}<th>Issued</th><th>Due</th><th class="r">Amount</th><th>Status</th><th></th></tr></thead><tbody>
+  ${list.map(i => { const c = clientById(i.clientId); return `<tr><td><b style="font-weight:500">${esc(i.no)}</b></td>${showClient ? `<td><div class="who">${logoSq(c, 'sm')}<b>${esc(c.name)}</b></div></td>` : ''}<td class="sm-muted">${fmtDay(i.issued)}</td><td class="sm-muted">${fmtDay(i.due)}</td><td class="r"><b style="font-weight:600">${money(invTotal(i))}</b></td><td>${invPill(i)}</td><td class="r"><button class="btn sm" data-inv="${i.id}">View</button></td></tr>`; }).join('') || `<tr><td colspan="7" class="empty">No invoices match</td></tr>`}
+  </tbody></table></div>`;
+}
+
+/* ---------- chat ---------- */
+const fmtMsg = s => esc(s).replace(/@([A-Z][a-zA-Z.]+(?: [A-Z][a-zA-Z]+)?)/g, '<b class="mention">@$1</b>');
+const hhmm = m => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+function chatThread(ch) {
+  const msgs = chatMsgs(ch); let lastDay = null;
+  const c = ch.client ? clientById(ch.client) : null;
+  const members = ch.kind === 'client' ? [c.manager, 'Jonas Weber', 'You', c.contact.name] : ch.kind === 'dm' ? [ch.name, 'You'] : TEAM.slice(0, 5);
+  return `<section class="chat-main">
+    <div class="chat-h"><div style="min-width:0"><b style="font-size:15px">${ch.kind === 'dm' ? esc(ch.name) : '# ' + esc(ch.name)}</b><div class="sm-muted">${ch.kind === 'client' ? `Shared with ${esc(c.contact.name)} (client guest)` : esc(ch.topic || 'Direct message')}</div></div>
+      <span style="flex:1"></span>${ch.kind === 'client' ? pill('info', 'Client channel') : ''}<span class="av-stack">${members.slice(0, 4).map(n => av(n === 'You' ? 'Chief Executive' : n)).join('')}</span></div>
+    <div class="msgs">${msgs.map(m => {
+      const div = m.day !== lastDay ? `<div class="day-div">${relDay(m.day)}</div>` : ''; lastDay = m.day;
+      return `${div}<div class="msg">${av(m.a === 'You' ? 'Chief Executive' : m.a)}<div style="min-width:0"><div class="msg-h"><b>${esc(m.a)}</b>${m.guest ? pill('neutral', 'Guest') : ''}<span class="sm-muted">${hhmm(m.m)}</span></div><div class="msg-t">${fmtMsg(m.text)}</div>${m.file ? `<span class="file">${icon('file')}${esc(m.file)}</span>` : ''}</div></div>`;
+    }).join('') || '<div class="empty">No messages yet. Say hello.</div>'}</div>
+    <form class="composer" data-chan="${ch.id}"><label class="ghost-attach" title="Attach a file">${icon('plus')}<input type="file" hidden></label><textarea name="m" rows="1" placeholder="Message ${ch.kind === 'dm' ? esc(ch.name) : '#' + esc(ch.name)}" aria-label="Message"></textarea><button class="btn primary" type="submit">Send</button></form>
+  </section>`;
+}
+function sendMsg(chId, text) {
+  (MSGS_ADDED[chId] = MSGS_ADDED[chId] || []).push({ a: 'You', text, day: T, m: Math.min(1439, Math.floor(NOW_H * 60) + (MSGS_ADDED[chId].length)) });
+  store('msgs', MSGS_ADDED);
+}
+const scrollChats = () => document.querySelectorAll('.msgs').forEach(el => el.scrollTop = el.scrollHeight);
+
+/* =====================================================================
+   VIEW: CLIENTS
+   ===================================================================== */
+function vClients() {
+  const totalRet = sum(CLIENTS.map(c => c.retainer));
+  const avgM = sum(CLIENTS.map(c => clientEcon(c).margin * c.retainer)) / totalRet;
+  const review = POSTS.filter(p => p.status === 'review' && p.acct !== 'tent').length;
+  const week = POSTS.filter(p => p.acct !== 'tent' && p.day >= T && p.day <= T + 6).length;
+  const risk = CLIENTS.filter(c => clientHealth(c).c !== 'good').length;
+  return `<div class="stack">
+    <div class="kpis six">
+      ${kpi({ ic: 'box', label: 'Active clients', value: CLIENTS.length, foot: `${CAMPAIGNS.filter(c => c.status === 'Active').length} live campaigns` })}
+      ${kpi({ ic: 'dollar', label: 'Monthly retainers', value: moneyK(totalRet), foot: 'recurring revenue' })}
+      ${kpi({ ic: 'sales', label: 'Average margin', value: pct(avgM, 0), d: pill(avgM >= .4 ? 'good' : 'warn', avgM >= .4 ? 'Healthy' : 'Watch'), foot: 'after team time' })}
+      ${kpi({ ic: 'calendar', label: 'Posts next 7 days', value: week, foot: 'across all clients', go: 'content' })}
+      ${kpi({ ic: 'clock', label: 'Awaiting approval', value: review, d: review ? pill('warn', 'With clients') : '', go: 'content' })}
+      ${kpi({ ic: 'alert', label: 'Need attention', value: risk, foot: 'overdue invoices, tasks or low margin' })}
+    </div>
+    <div class="ccards">${CLIENTS.map(c => {
+      const h = clientHealth(c), e = clientEcon(c), np = nextPost(c.id), open = openTasks().filter(t => taskClient(t) === c.id).length;
+      const fol = sum(acctPlats(c).map(p => followersAt(p, T, c)));
+      return `<button class="ccard" data-go="client.${c.id}">
+        <div class="row" style="align-items:flex-start"><div class="who">${logoSq(c)}<div style="min-width:0"><b style="font-weight:600">${esc(c.name)}</b><small>${esc(c.industry)} · since ${c.since}</small></div></div>${pill(h.c, h.n)}</div>
+        <div class="stats"><div><span>Retainer</span><b>${money(c.retainer)}</b></div><div><span>Margin</span><b>${pct(e.margin, 0)}</b></div><div><span>Followers</span><b>${fmtK(fol)}</b></div><div><span>Open tasks</span><b>${open}</b></div></div>
+        ${meter(e.margin, e.margin < .3 ? 'var(--s2)' : 'var(--accent)', 30, 'sm')}
+        <div class="row sm-muted" style="font-size:12.5px"><span class="who">${av(c.manager)}${esc(c.manager)}</span><span>${np ? `Next post ${relLow(np.day)} ${np.time}` : 'No posts planned'}</span></div>
+      </button>`; }).join('')}</div>
+  </div>`;
+}
+
+/* ---------- client hub ---------- */
+function vClient(id) {
+  const c = clientById(id); if (!c) return vClients();
+  const h = clientHealth(c), e = clientEcon(c);
+  const posts = POSTS.filter(p => p.acct === c.id).sort(postSort);
+  const tasks = TASKS.filter(t => taskClient(t) === c.id);
+  const camps = CAMPAIGNS.filter(x => x.client === c.id);
+  const invs = INVOICES.filter(i => i.clientId === c.id).sort((a, b) => b.issued - a.issued);
+  const ch = chanById('cl-' + c.id);
+  const t = state.clientTab;
+  let body = '';
+  if (t === 'overview') {
+    const so = socialTotals(acctPlats(c), state.start, state.end, c), pv = prev(), sp = socialTotals(acctPlats(c), pv.s, pv.e, c);
+    const unpaid = invs.filter(i => i.status === 'sent'), review = posts.filter(p => p.status === 'review');
+    body = `<div class="kpis six">
+        ${kpi({ ic: 'users', label: 'Followers', value: fmtK(so.followers), d: `<span class="delta up">+${fmtN(so.newFollowers)}</span>`, foot: rangeLabel() })}
+        ${kpi({ ic: 'eye', label: 'Reach', value: fmtK(so.reach), d: delta(so.reach, sp.reach) })}
+        ${kpi({ ic: 'heart', label: 'Engagement rate', value: pct(so.er, 2), d: delta(so.er, sp.er) })}
+        ${kpi({ ic: 'calendar', label: 'Posts next 7 days', value: posts.filter(p => p.day >= T && p.day <= T + 6).length, foot: `${review.length} awaiting approval` })}
+        ${kpi({ ic: 'tasks', label: 'Open tasks', value: tasks.filter(x => x.status !== 'done').length, foot: `${tasks.filter(x => x.status !== 'done' && x.due < T).length} overdue` })}
+        ${kpi({ ic: 'file', label: 'Unpaid', value: moneyK(sum(unpaid.map(invTotal))), d: unpaid.some(i => i.due < T) ? pill('crit', 'Overdue') : unpaid.length ? pill('info', 'Not due') : pill('good', 'All paid') })}
+      </div>
+      <div class="grid">
+        <article class="card c8"><div class="card-h"><h3>Reach</h3><span class="sub">${byUnit(buckets())}, ${rangeLabel()}</span></div>${legend(acctPlats(c).map(p => ({ name: p.name, color: p.color })))}<div class="chart" data-chart="cl-reach"></div></article>
+        <article class="card c4"><div class="card-h"><h3>Profitability</h3><span class="sub">this month</span></div>
+          <div class="big">${pct(e.margin, 0)}</div>${meter(e.margin, e.margin < .3 ? 'var(--s2)' : 'var(--accent)', 34)}
+          <div class="list"><div class="row"><span class="sm-muted">Retainer</span><b class="num">${money(c.retainer)}</b></div><div class="row"><span class="sm-muted">Team hours logged</span><b class="num">${e.hours} h</b></div><div class="row"><span class="sm-muted">Cost at ${money(COST_PER_HOUR)}/h</span><b class="num">${money(e.cost)}</b></div><div class="row"><span class="sm-muted">Profit</span><b class="num" style="color:var(--good-ink)">${money(c.retainer - e.cost)}</b></div></div>
+        </article>
+      </div>
+      <div class="grid">
+        <article class="card c6"><div class="card-h"><h3>Coming up</h3><button class="link-btn" data-tab="clientTab" data-val="content">All content</button></div>${postList(posts.filter(p => p.day >= T).slice(0, 5))}</article>
+        <article class="card c6"><div class="card-h"><h3>Latest in #${esc(ch.name)}</h3><button class="link-btn" data-tab="clientTab" data-val="chat">Open chat</button></div>
+          <div class="list">${chatMsgs(ch).slice(-3).map(m => `<div class="msg">${av(m.a === 'You' ? 'Chief Executive' : m.a)}<div style="min-width:0"><div class="msg-h"><b>${esc(m.a)}</b>${m.guest ? pill('neutral', 'Guest') : ''}<span class="sm-muted">${relDay(m.day)} ${hhmm(m.m)}</span></div><div class="msg-t">${fmtMsg(m.text)}</div></div></div>`).join('')}</div></article>
+      </div>`;
+  } else if (t === 'social') {
+    body = socialPage(c);
+  } else if (t === 'content') {
+    body = `<article class="card"><div class="card-h"><h3>Content</h3><button class="btn primary" data-newpost="${c.id}">+ Schedule post</button></div>${postTable(posts)}</article>`;
+  } else if (t === 'tasks') {
+    body = `<article class="card"><div class="card-h"><h3>Tasks</h3><button class="btn primary" data-newtask="${c.id}">+ New task</button></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Task</th><th>Owner</th><th>Project</th><th>Due</th><th>Status</th></tr></thead><tbody>
+      ${tasks.sort((a, b) => (a.status === 'done') - (b.status === 'done') || a.due - b.due).map(x => `<tr><td><b style="font-weight:500">${esc(x.title)}</b> <span class="prio ${x.priority}">${x.priority}</span></td><td><span class="who">${av(x.assignee)}${esc(x.assignee.split(' ')[0])}</span></td><td class="sm-muted">${esc(x.project)}</td><td>${x.status === 'done' ? '<span class="sm-muted">—</span>' : dueChip(x.due)}</td><td>${pill(x.status === 'done' ? 'good' : x.status === 'review' ? 'warn' : x.status === 'doing' ? 'info' : 'neutral', STATUSES.find(s => s.id === x.status).name)}</td></tr>`).join('') || '<tr><td colspan="5" class="empty">No tasks for this client yet</td></tr>'}
+      </tbody></table></div></article>`;
+  } else if (t === 'campaigns') {
+    body = camps.length ? `<div class="ccards">${camps.map(campCard).join('')}</div>` : `<article class="card"><div class="empty">No influencer campaigns yet. <button class="link-btn" data-newcamp="${c.id}">Plan one</button></div></article>`;
+  } else if (t === 'chat') {
+    UNREAD[ch.id] = 0;
+    body = `<div class="chat embed">${chatThread(ch)}</div>`;
+  } else if (t === 'billing') {
+    body = `<article class="card"><div class="card-h"><h3>Invoices</h3><button class="btn primary" data-newinv="${c.id}">+ New invoice</button></div>${invoiceTable(invs, false)}</article>`;
+  }
+  return `<div class="stack">
+    <div class="hub">${logoSq(c, 'lg')}<div><h2>${esc(c.name)}</h2><div class="meta"><span>${esc(c.industry)}</span><span>·</span><span class="who">${av(c.manager)}${esc(c.manager)}</span><span>·</span>${pill(h.c, h.n)}<span>${esc(h.why)}</span></div></div>
+      <div class="acts"><button class="btn" data-share="${c.id}">${icon('send')} Share portal</button><button class="btn primary" data-go="portal.${c.id}">Open client portal</button></div></div>
+    <div id="shareSlot"></div>
+    ${tabs('clientTab', [['overview', 'Overview'], ['social', 'Social'], ['content', 'Content', posts.filter(p => p.status === 'review').length], ['tasks', 'Tasks', tasks.filter(x => x.status !== 'done').length], ['campaigns', 'Campaigns', camps.length], ['chat', 'Chat', UNREAD[ch.id]], ['billing', 'Billing']])}
+    ${body}
+  </div>`;
+}
+function afterClient(id) {
+  const c = clientById(id); if (!c) return;
+  if (state.clientTab === 'overview') { const b = buckets(); lineChart(q('[data-chart="cl-reach"]'), { labels: b.labels, series: acctPlats(c).map(p => ({ name: p.name, color: p.color, values: b.split(d => socialDay(p, d, c).reach) })), h: 240 }); }
+  if (state.clientTab === 'social') afterSocialPage(c);
+  if (state.clientTab === 'chat') { UNREAD['cl-' + c.id] = 0; scrollChats(); }
+}
+function postList(list) {
+  return `<div class="list">${list.map(p => `<button class="snap" data-post="${p.id}"><span class="ic" style="flex-direction:column;line-height:1.1;font-size:11px;width:44px"><b>${fmtDay(p.day, { day: 'numeric' })}</b><span class="sm-muted" style="font-size:10.5px">${fmtDay(p.day, { month: 'short' })}</span></span><span class="l" style="white-space:normal"><span style="display:block;color:var(--ink)">${esc(p.caption)}</span><span class="sm-muted">${p.time} · ${acctShort(p.acct)} </span>${platDots(p.plats)}</span>${postPill(p)}</button>`).join('') || '<div class="empty">Nothing planned</div>'}</div>`;
+}
+function postTable(list) {
+  return `<div class="tbl-wrap"><table><thead><tr><th>When</th><th>Account</th><th>Post</th><th>Status</th><th></th></tr></thead><tbody>
+  ${list.map(p => `<tr><td style="white-space:nowrap"><b style="font-weight:500">${relDay(p.day)}</b><div class="sm-muted">${p.time}</div></td><td><span class="who">${logoSq(acctOf(p.acct), 'sm')}<span>${esc(acctShort(p.acct))}</span></span></td><td style="min-width:220px"><div>${esc(p.caption)}</div><div class="sm-muted" style="display:flex;gap:6px;align-items:center">${platDots(p.plats)} ${p.plats.map(x => PLATFORMS.find(y => y.id === x).name).join(', ')}</div></td><td>${postPill(p)}</td>
+    <td class="r" style="white-space:nowrap">${p.status === 'review' ? `<button class="btn sm" data-changes="${p.id}">Request changes</button> <button class="btn sm primary" data-approve="${p.id}">Approve</button>` : `<button class="btn sm" data-post="${p.id}">Edit</button>`}</td></tr>`).join('') || '<tr><td colspan="5" class="empty">No posts</td></tr>'}
+  </tbody></table></div>`;
+}
+
+/* ---------- client portal (what the client sees) ---------- */
+function vPortal(id) {
+  const c = clientById(id); if (!c) return vClients();
+  const g = GUESTS.find(x => x.client === c.id);
+  const so = socialTotals(acctPlats(c), state.start, state.end, c), pv = prev(), sp = socialTotals(acctPlats(c), pv.s, pv.e, c);
+  const review = POSTS.filter(p => p.acct === c.id && p.status === 'review').sort(postSort);
+  const upcoming = POSTS.filter(p => p.acct === c.id && p.day >= T && p.status === 'scheduled').sort(postSort).slice(0, 5);
+  const camps = CAMPAIGNS.filter(x => x.client === c.id);
+  const invs = INVOICES.filter(i => i.clientId === c.id && i.status !== 'draft').sort((a, b) => b.issued - a.issued).slice(0, 5);
+  return `<div class="stack">
+    <div class="viewas">${icon('eye')}<span><b>Client portal preview.</b> This is what ${esc(g ? g.name : c.contact.name)} at ${esc(c.name)} sees at their private link. ${g && g.portal ? '' : 'Portal access is currently <b>off</b> for this client.'}</span><button class="btn sm" data-go="client.${c.id}">Back to client</button></div>
+    ${shareBox(portalUrl(c), 'Example link. The real one is created per client when you build the portal, and can be switched off in Team & access.')}
+    <div class="portal">
+      <div class="portal-h"><div class="who">${logoSq(c, 'lg')}<div><b style="font-size:18px;font-weight:600">${esc(c.name)}</b><small>Prepared by Tent Communications · ${rangeLabel()}</small></div></div><span class="brand" style="font-size:14px"><span class="mark" style="width:24px;height:24px;border-radius:7px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M12 7v13"/></svg></span>Tent Communications</span></div>
+      <div class="kpis">
+        ${kpi({ ic: 'users', label: 'Followers', value: fmtK(so.followers), d: `<span class="delta up">+${fmtN(so.newFollowers)}</span>` })}
+        ${kpi({ ic: 'eye', label: 'Reach', value: fmtK(so.reach), d: delta(so.reach, sp.reach) })}
+        ${kpi({ ic: 'heart', label: 'Engagement rate', value: pct(so.er, 2), d: delta(so.er, sp.er) })}
+        ${kpi({ ic: 'send', label: 'Posts published', value: so.posts })}
+      </div>
+      <div class="grid">
+        <article class="card c7"><div class="card-h"><h3>Waiting for your approval</h3><span class="sub">${review.length} post${review.length === 1 ? '' : 's'}</span></div>
+          <div class="list">${review.map(p => `<div style="display:flex;flex-direction:column;gap:8px"><div class="row"><span class="sm-muted">${relDay(p.day)} at ${p.time} · ${platDots(p.plats)}</span></div><div>${esc(p.caption)}</div><div class="row" style="justify-content:flex-end"><button class="btn sm" data-changes="${p.id}">Request changes</button><button class="btn sm primary" data-approve="${p.id}">Approve</button></div></div>`).join('') || '<div class="empty">You are all caught up</div>'}</div></article>
+        <article class="card c5"><div class="card-h"><h3>Scheduled next</h3></div>${postList(upcoming)}</article>
+      </div>
+      ${camps.length ? `<article class="card"><div class="card-h"><h3>Campaign reports</h3></div><div class="tbl-wrap"><table><thead><tr><th>Campaign</th><th>Status</th><th class="r">Creators</th><th class="r">Deliverables</th><th class="r">Reach</th><th class="r">Engagements</th></tr></thead><tbody>
+        ${camps.map(x => { const s = campStats(x); return `<tr><td><b style="font-weight:500">${esc(x.name)}</b><div class="sm-muted">${fmtDay(x.start)} – ${fmtDay(x.end)}</div></td><td>${pill(CAMP_STATUS[x.status], x.status)}</td><td class="r">${x.members.length}</td><td class="r">${s.done} / ${s.total}</td><td class="r">${fmtK(s.reach)}</td><td class="r">${fmtK(s.eng)}</td></tr>`; }).join('')}</tbody></table></div></article>` : ''}
+      <article class="card"><div class="card-h"><h3>Invoices</h3></div>${invoiceTable(invs, false)}</article>
+    </div>
+  </div>`;
+}
+
+/* =====================================================================
+   VIEW: CONTENT (publishing calendar + approvals)
+   ===================================================================== */
+function vContent() {
+  const f = state.contentFilter, m = state.calMonth;
+  const list = POSTS.filter(p => (!f.acct || p.acct === f.acct) && (!f.status || p.status === f.status));
+  const first = new Date(m.y, m.m, 1), startIdx = idxOf(first) - first.getDay(), lastIdx = idxOf(new Date(m.y, m.m + 1, 0));
+  const cells = Math.ceil((lastIdx - startIdx + 1) / 7) * 7;
+  const review = POSTS.filter(p => p.status === 'review').sort(postSort), changes = POSTS.filter(p => p.status === 'changes');
+  const today = POSTS.filter(p => p.day === T).sort(postSort);
+  const inWeek = POSTS.filter(p => p.day >= T && p.day <= T + 6);
+  return `<div class="stack">
+    <div class="kpis six">
+      ${kpi({ ic: 'calendar', label: 'Scheduled', value: POSTS.filter(p => p.status === 'scheduled').length, foot: 'ready to publish' })}
+      ${kpi({ ic: 'clock', label: 'Awaiting approval', value: review.length, d: review.length ? pill('warn', 'With clients') : '' })}
+      ${kpi({ ic: 'alert', label: 'Changes requested', value: changes.length, d: changes.length ? pill('serious', 'Fix') : '' })}
+      ${kpi({ ic: 'file', label: 'Drafts', value: POSTS.filter(p => p.status === 'draft').length })}
+      ${kpi({ ic: 'send', label: 'Published today', value: today.filter(p => p.status === 'published').length, foot: `${today.length} planned today` })}
+      ${kpi({ ic: 'layers', label: 'Next 7 days', value: inWeek.length, foot: `${new Set(inWeek.map(p => p.acct)).size} accounts` })}
+    </div>
+    <div class="grid">
+      <article class="card c9">
+        <div class="card-h">
+          <div class="bar-l"><button class="go" data-cal="-1" aria-label="Previous month">‹</button><h3 style="min-width:130px;justify-content:center">${first.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h3><button class="go" data-cal="1" aria-label="Next month">›</button><button class="btn sm" data-cal="0">Today</button></div>
+          <div class="toolbar">
+            <select id="cfAcct" aria-label="Account"><option value="">All accounts</option>${[ACCT_TENT, ...CLIENTS].map(a => `<option value="${a.id}" ${f.acct === a.id ? 'selected' : ''}>${esc(a.name)}</option>`).join('')}</select>
+            <select id="cfStatus" aria-label="Status"><option value="">All statuses</option>${Object.entries(POST_STATUS).map(([k, v]) => `<option value="${k}" ${f.status === k ? 'selected' : ''}>${v.n}</option>`).join('')}</select>
+            <button class="btn primary" data-newpost="">+ Schedule post</button>
+          </div>
+        </div>
+        <div class="legend">${Object.entries(POST_STATUS).map(([k, v]) => `<span><i class="st-${k}"></i>${v.n}</span>`).join('')}</div>
+        <div class="cal-wrap"><div class="cal">
+          ${['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(d => `<div class="cal-hd">${d}</div>`).join('')}
+          ${Array.from({ length: cells }, (_, i) => {
+            const d = startIdx + i, dt = dateOf(d), ps = list.filter(p => p.day === d).sort(postSort);
+            return `<div class="cal-day ${dt.getMonth() !== m.m ? 'out' : ''} ${d === T ? 'today' : ''}"><span class="dn">${dt.getDate()}</span>
+              ${ps.slice(0, 3).map(p => `<button class="cal-chip st-${p.status}" data-post="${p.id}" title="${attr(esc(acctOf(p.acct).name + ' · ' + p.time + ' · ' + POST_STATUS[p.status].n + ' — ' + p.caption))}">${platDots(p.plats)}<span>${p.time} ${esc(acctShort(p.acct))}</span></button>`).join('')}
+              ${ps.length > 3 ? `<span class="more">+${ps.length - 3} more</span>` : ''}</div>`;
+          }).join('')}
+        </div></div>
+      </article>
+      <div class="stack c3 aside">
+        <article class="card"><div class="card-h"><h3>Approval queue</h3><span class="sub">${review.length}</span></div>
+          <div class="list">${review.slice(0, 6).map(p => `<div style="display:flex;flex-direction:column;gap:8px"><div class="row"><span class="who">${logoSq(acctOf(p.acct), 'sm')}<b>${esc(acctShort(p.acct))}</b></span><span class="sm-muted">${relDay(p.day)} ${p.time}</span></div><div style="font-size:13px;color:var(--ink-2)">${esc(p.caption)}</div><div class="row" style="justify-content:flex-end"><button class="btn sm" data-changes="${p.id}">Changes</button><button class="btn sm primary" data-approve="${p.id}">Approve</button></div></div>`).join('') || '<div class="empty">Nothing waiting</div>'}</div>
+          <div class="sm-muted">Clients can also approve from their portal.</div></article>
+        <article class="card"><div class="card-h"><h3>Today</h3><span class="sub">${today.length} posts</span></div>${postList(today)}</article>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* =====================================================================
+   VIEW: INFLUENCERS (directory, campaigns, profiles)
+   ===================================================================== */
+function campCard(x) {
+  const s = campStats(x), c = clientById(x.client);
+  return `<button class="ccard" data-go="campaign.${x.id}">
+    <div class="row" style="align-items:flex-start"><div class="who">${logoSq(c)}<div style="min-width:0"><b style="font-weight:600">${esc(x.name)}</b><small>${esc(c.name)} · ${fmtDay(x.start)} – ${fmtDay(x.end)}</small></div></div>${pill(CAMP_STATUS[x.status], x.status)}</div>
+    <div class="stats"><div><span>Budget</span><b>${moneyK(x.budget)}</b></div><div><span>Committed</span><b>${moneyK(s.committed)}</b></div><div><span>Reach</span><b>${s.reach ? fmtK(s.reach) : '—'}</b></div><div><span>Engagements</span><b>${s.eng ? fmtK(s.eng) : '—'}</b></div></div>
+    <div style="display:flex;flex-direction:column;gap:6px"><div class="row sm-muted" style="font-size:12.5px"><span>Deliverables live</span><span>${s.done} of ${s.total}</span></div>${meter(s.total ? s.done / s.total : 0, 'var(--accent)', 30, 'sm')}</div>
+    <div class="row"><span class="av-stack">${x.members.slice(0, 5).map(m => av(inflById(m.inf).name)).join('')}</span><span class="sm-muted" style="font-size:12.5px">${x.members.length} creators${s.review ? ` · ${s.review} in review` : ''}</span></div>
+  </button>`;
+}
+function vInfluencers() {
+  const active = CAMPAIGNS.filter(c => c.status === 'Active'), st = CAMPAIGNS.map(campStats);
+  const dueWeek = CAMPAIGNS.flatMap(c => c.members.flatMap(m => m.dels)).filter(d => d.status !== 'Live' && d.due >= T && d.due <= T + 7).length;
+  const tot = { reach: sum(st.map(s => s.reach)), eng: sum(st.map(s => s.eng)), committed: sum(st.map(s => s.committed)) };
+  let body;
+  if (state.inflTab === 'campaigns') {
+    body = `<div class="bar"><div class="bar-l"><span class="sm-muted">${CAMPAIGNS.length} campaigns</span></div><button class="btn primary" data-newcamp="">+ New campaign</button></div>
+      <div class="ccards">${[...CAMPAIGNS].sort((a, b) => ({ Active: 0, Planning: 1, Completed: 2 })[a.status] - ({ Active: 0, Planning: 1, Completed: 2 })[b.status]).map(campCard).join('')}</div>`;
+  } else {
+    const f = state.inflFilter;
+    const list = INFLUENCERS.filter(i => (!f.q || (i.name + i.handle).toLowerCase().includes(f.q.toLowerCase())) && (!f.niche || i.niche === f.niche) && (!f.plat || i.plat === f.plat));
+    body = `<article class="card">
+      <div class="toolbar"><input id="ifQ" type="search" placeholder="Search name or handle" value="${attr(esc(f.q))}" aria-label="Search influencers">
+        <select id="ifNiche" aria-label="Niche"><option value="">All niches</option>${NICHES.map(n => `<option ${f.niche === n ? 'selected' : ''}>${n}</option>`).join('')}</select>
+        <select id="ifPlat" aria-label="Platform"><option value="">All platforms</option>${PLATFORMS.map(p => `<option value="${p.id}" ${f.plat === p.id ? 'selected' : ''}>${p.name}</option>`).join('')}</select>
+        <button class="btn primary" data-newinfl>+ Add influencer</button></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Influencer</th><th>Platform</th><th>Niche</th><th class="r">Followers</th><th class="r">Eng. rate</th><th class="r">Rate / post</th><th class="r">Campaigns</th><th>Rating</th></tr></thead><tbody>
+      ${list.map(i => { const p = PLATFORMS.find(x => x.id === i.plat); return `<tr><td><button class="who" style="background:none;border:0;padding:0;text-align:left" data-go="influencer.${i.id}">${av(i.name)}<div style="min-width:0"><b>${esc(i.name)}</b><small>${esc(i.handle)}</small></div></button></td><td><span class="who">${sw(p.color)}${p.name}</span></td><td>${pill('neutral', esc(i.niche))}</td><td class="r">${fmtK(i.followers)}</td><td class="r">${pct(i.er, 1)}</td><td class="r">${money(i.rate)}</td><td class="r">${CAMPAIGNS.filter(c => c.infl.includes(i.id)).length}</td><td>${stars(i.rating)}</td></tr>`; }).join('') || '<tr><td colspan="8" class="empty">No influencers match</td></tr>'}
+      </tbody></table></div></article>`;
+  }
+  return `<div class="stack">
+    <div class="kpis six">
+      ${kpi({ ic: 'layers', label: 'Active campaigns', value: active.length, foot: `${CAMPAIGNS.filter(c => c.status === 'Planning').length} in planning` })}
+      ${kpi({ ic: 'users', label: 'Creators in roster', value: INFLUENCERS.length, foot: `${NICHES.length} niches` })}
+      ${kpi({ ic: 'eye', label: 'Campaign reach', value: fmtK(tot.reach), foot: 'all live deliverables' })}
+      ${kpi({ ic: 'heart', label: 'Engagements', value: fmtK(tot.eng) })}
+      ${kpi({ ic: 'dollar', label: 'Avg cost per engagement', value: tot.eng ? CONFIG.currency + (tot.committed / tot.eng).toFixed(2) : '—', foot: `${moneyK(tot.committed)} committed` })}
+      ${kpi({ ic: 'calendar', label: 'Deliverables due', value: dueWeek, foot: 'next 7 days' })}
+    </div>
+    ${tabs('inflTab', [['campaigns', 'Campaigns', CAMPAIGNS.length], ['directory', 'Directory', INFLUENCERS.length]])}
+    ${body}
+  </div>`;
+}
+function vCampaign(id) {
+  const x = campById(id); if (!x) return vInfluencers();
+  const s = campStats(x), c = clientById(x.client);
+  return `<div class="stack">
+    <div class="hub">${logoSq(c, 'lg')}<div><h2>${esc(x.name)}</h2><div class="meta"><button class="link-btn" data-go="client.${c.id}">${esc(c.name)}</button><span>·</span><span>${fmtDay(x.start, { month: 'short', day: 'numeric', year: 'numeric' })} – ${fmtDay(x.end, { month: 'short', day: 'numeric', year: 'numeric' })}</span>${pill(CAMP_STATUS[x.status], x.status)}</div></div>
+      <div class="acts"><button class="btn" data-go="influencers">All campaigns</button><button class="btn" data-sharecamp="${x.id}">${icon('send')} Share report</button><button class="btn primary" data-go="portal.${c.id}">Client view</button></div></div>
+    <div id="shareSlot"></div>
+    <div class="sm-muted">Goal: ${esc(x.goal)}</div>
+    <div class="kpis six">
+      ${kpi({ ic: 'wallet', label: 'Budget', value: money(x.budget), foot: `${pct(s.committed / x.budget, 0)} committed` })}
+      ${kpi({ ic: 'dollar', label: 'Committed fees', value: money(s.committed), foot: `${money(s.paid)} paid out` })}
+      ${kpi({ ic: 'eye', label: 'Reach', value: s.reach ? fmtK(s.reach) : '—' })}
+      ${kpi({ ic: 'heart', label: 'Engagements', value: s.eng ? fmtK(s.eng) : '—', foot: s.reach ? pct(s.eng / s.reach, 1) + ' of reach' : '' })}
+      ${kpi({ ic: 'target', label: 'Cost per engagement', value: s.eng ? CONFIG.currency + s.cpe.toFixed(2) : '—' })}
+      ${kpi({ ic: 'check', label: 'Deliverables live', value: `${s.done}<small> / ${s.total}</small>`, d: s.review ? pill('warn', `${s.review} in review`) : '' })}
+    </div>
+    <article class="card"><div class="card-h"><h3>Creators</h3><span class="sub">${x.members.length} in this campaign</span></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Creator</th><th>Deliverables</th><th class="r">Fee</th><th>Payment</th><th class="r">Reach</th><th class="r">Eng. rate</th></tr></thead><tbody>
+      ${x.members.map(m => { const i = inflById(m.inf), r = sum(m.dels.map(d => d.reach)), e = sum(m.dels.map(d => d.eng)); return `<tr><td><button class="who" style="background:none;border:0;padding:0;text-align:left" data-go="influencer.${i.id}">${av(i.name)}<div style="min-width:0"><b>${esc(i.name)}</b><small>${esc(i.handle)} · ${fmtK(i.followers)}</small></div></button></td>
+        <td><div class="chips" style="gap:4px">${m.dels.map(d => `<span class="pill ${DEL_STATUS[d.status]}" title="Due ${fmtDay(d.due)}">${d.type} · ${d.status}</span>`).join('')}</div></td>
+        <td class="r">${money(m.fee)}</td><td>${m.paid ? pill('good', 'Paid') : pill('neutral', 'Unpaid')}</td><td class="r">${r ? fmtK(r) : '—'}</td><td class="r">${r ? pct(e / r, 1) : '—'}</td></tr>`; }).join('')}
+      </tbody></table></div></article>
+    <article class="card"><div class="card-h"><h3>Reach by creator</h3></div>
+      <div class="list">${x.members.map(m => { const i = inflById(m.inf), r = sum(m.dels.map(d => d.reach)); return `<div style="display:flex;flex-direction:column;gap:6px"><div class="row" style="font-size:13.5px"><span>${esc(i.name)}</span><b class="num" style="font-weight:600">${r ? fmtK(r) : 'Not live yet'}</b></div>${hbar([{ name: i.name, color: 'var(--accent)', v: r, label: 'Reach' }, { color: 'transparent', v: Math.max(1, s.reach) - r }], Math.max(1, s.reach))}</div>`; }).join('')}</div></article>
+  </div>`;
+}
+function vInfluencer(id) {
+  const i = inflById(id); if (!i) return vInfluencers();
+  const p = PLATFORMS.find(x => x.id === i.plat);
+  const hist = CAMPAIGNS.filter(c => c.infl.includes(i.id)).map(c => ({ c, m: c.members.find(m => m.inf === i.id) }));
+  const reach = sum(hist.flatMap(h => h.m.dels.map(d => d.reach))), eng = sum(hist.flatMap(h => h.m.dels.map(d => d.eng)));
+  return `<div class="grid">
+    <article class="card c4">
+      <div class="who">${av(i.name).replace('class="av"', 'class="av lg"')}<div><b style="font-size:16px;font-weight:600">${esc(i.name)}</b><small>${esc(i.handle)}</small></div></div>
+      <div class="chips">${pill('neutral', esc(i.niche))}<span class="pill neutral">${sw(p.color)} ${p.name}</span>${stars(i.rating)}</div>
+      <div class="mini-grid"><div><span>Followers</span><b>${fmtK(i.followers)}</b></div><div><span>Eng. rate</span><b>${pct(i.er, 1)}</b></div><div><span>Rate / post</span><b>${money(i.rate)}</b></div><div><span>Campaigns</span><b>${hist.length}</b></div></div>
+      <div class="list">
+        <div class="row"><span class="sm-muted">Email</span><span class="sel">${esc(i.email)}</span><button class="btn sm" data-copy="${attr(i.email)}">Copy</button></div>
+        <div class="row"><span class="sm-muted">Phone</span><span class="sel">${esc(i.phone)}</span><button class="btn sm" data-copy="${attr(i.phone)}">Copy</button></div>
+      </div>
+      <div><div class="sm-muted">Notes</div><div style="font-size:13.5px">${esc(i.notes || 'No notes yet.')}</div></div>
+    </article>
+    <div class="stack c8">
+      <div class="kpis">
+        ${kpi({ ic: 'layers', label: 'Campaigns with us', value: hist.length })}
+        ${kpi({ ic: 'dollar', label: 'Total fees', value: money(sum(hist.map(h => h.m.fee))) })}
+        ${kpi({ ic: 'eye', label: 'Reach delivered', value: reach ? fmtK(reach) : '—' })}
+        ${kpi({ ic: 'heart', label: 'Delivered eng. rate', value: reach ? pct(eng / reach, 1) : '—', foot: `profile average ${pct(i.er, 1)}` })}
+      </div>
+      <article class="card"><div class="card-h"><h3>Work history</h3></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Campaign</th><th>Client</th><th>Status</th><th class="r">Deliverables</th><th class="r">Fee</th><th class="r">Reach</th></tr></thead><tbody>
+        ${hist.map(h => `<tr><td><button class="link-btn" data-go="campaign.${h.c.id}">${esc(h.c.name)}</button><div class="sm-muted">${fmtDay(h.c.start)} – ${fmtDay(h.c.end)}</div></td><td>${esc(clientById(h.c.client).name)}</td><td>${pill(CAMP_STATUS[h.c.status], h.c.status)}</td><td class="r">${h.m.dels.filter(d => d.status === 'Live').length} / ${h.m.dels.length}</td><td class="r">${money(h.m.fee)}</td><td class="r">${fmtK(sum(h.m.dels.map(d => d.reach)))}</td></tr>`).join('') || '<tr><td colspan="6" class="empty">Not in a campaign yet</td></tr>'}
+        </tbody></table></div></article>
+    </div>
+  </div>`;
+}
+function openInflDialog() {
+  openDlg(`<h2>Add influencer</h2>
+    <div class="fld-row"><label class="fld">Name<input name="name" placeholder="Full name"></label><label class="fld">Handle<input name="handle" placeholder="@handle"></label></div>
+    <div class="fld-row"><label class="fld">Main platform<select name="plat">${PLATFORMS.map(p => `<option value="${p.id}">${p.name}</option>`).join('')}</select></label><label class="fld">Niche<input name="niche" list="niches" placeholder="e.g. Food"><datalist id="niches">${NICHES.map(n => `<option value="${n}">`).join('')}</datalist></label></div>
+    <div class="fld-row"><label class="fld">Followers<input name="followers" type="number" min="0" placeholder="120000"></label><label class="fld">Engagement rate %<input name="er" type="number" min="0" step="0.1" placeholder="4.5"></label></div>
+    <div class="fld-row"><label class="fld">Email<input name="email" type="email"></label><label class="fld">Phone<input name="phone"></label></div>
+    <div class="fld-row"><label class="fld">Rate per post<input name="rate" type="number" min="0" placeholder="500"></label><label class="fld">Notes<input name="notes"></label></div>
+    <div class="err" hidden></div><div class="acts"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Add influencer</button></div>`,
+    f => {
+      if (!f.name.value.trim() || !f.handle.value.trim()) return 'Add a name and handle.';
+      const rec = { id: 'x' + Date.now(), name: f.name.value.trim(), handle: f.handle.value.trim().replace(/^@?/, '@'), plat: f.plat.value, niche: f.niche.value.trim() || 'Other', followers: +f.followers.value || 0, er: (+f.er.value || 0) / 100, rate: +f.rate.value || 0, email: f.email.value.trim(), phone: f.phone.value.trim(), rating: 3, notes: f.notes.value.trim() };
+      INFLUENCERS.push(rec); store('influencers', INFLUENCERS.filter(i => i.id.startsWith('x'))); toast(`${rec.name} added`); state.inflTab = 'directory'; render();
+    });
+}
+function openCampDialog(preset) {
+  openDlg(`<h2>New campaign</h2>
+    <div class="fld-row"><label class="fld">Name<input name="name" placeholder="e.g. Spring Launch"></label><label class="fld">Client<select name="client">${CLIENTS.map(c => `<option value="${c.id}" ${c.id === preset ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select></label></div>
+    <div class="fld-row"><label class="fld">Start<input type="date" name="start" value="${toISO(T + 7)}"></label><label class="fld">End<input type="date" name="end" value="${toISO(T + 35)}"></label></div>
+    <div class="fld-row"><label class="fld">Budget<input type="number" name="budget" min="0" value="8000"></label><label class="fld">Goal<input name="goal" placeholder="What should this campaign achieve?"></label></div>
+    <div class="fld">Creators<div class="checks" style="max-height:160px;overflow:auto">${INFLUENCERS.map(i => `<label class="mchip"><input type="checkbox" value="${i.id}">${esc(i.name)} · ${esc(i.niche)}</label>`).join('')}</div></div>
+    <div class="err" hidden></div><div class="acts"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Create campaign</button></div>`,
+    f => {
+      const infl = [...f.querySelectorAll('.checks input:checked')].map(i => i.value);
+      if (!f.name.value.trim()) return 'Give the campaign a name.';
+      if (!infl.length) return 'Pick at least one creator.';
+      const rec = { id: 'k' + Date.now(), name: f.name.value.trim(), client: f.client.value, status: 'Planning', start: fromISO(f.start.value), end: fromISO(f.end.value), budget: +f.budget.value || 0, goal: f.goal.value.trim() || 'Not set', infl };
+      const saved = store('campaigns') || []; saved.push(rec); store('campaigns', saved);
+      CAMPAIGNS.push(buildMembers({ ...rec })); toast('Campaign created'); go('campaign.' + rec.id);
+    });
+}
+
+/* =====================================================================
+   VIEW: MESSAGES
+   ===================================================================== */
+function vMessages() {
+  const ch = chanById(state.chan) || CHANNELS[0];
+  UNREAD[ch.id] = 0;
+  const item = c => `<button class="chan ${UNREAD[c.id] ? 'unread' : ''}" data-chan="${c.id}" aria-current="${c.id === ch.id}">${c.kind === 'dm' ? av(c.name) : c.kind === 'client' ? logoSq(clientById(c.client), 'xs') : '<span class="hash">#</span>'}<span class="cn">${esc(c.name)}</span>${UNREAD[c.id] ? `<span class="count">${UNREAD[c.id]}</span>` : ''}</button>`;
+  const sec = (label, kind) => `<div><div class="nav-label" style="padding-left:10px">${label}</div>${CHANNELS.filter(c => c.kind === kind).map(item).join('')}</div>`;
+  return `<div class="chat">
+    <aside class="chat-side"><div class="row" style="padding:0 6px"><b>Spaces</b><button class="go" data-newchan aria-label="New space">${icon('plus')}</button></div>
+      ${sec('Team spaces', 'team')}${sec('Client spaces', 'client')}${sec('Direct messages', 'dm')}</aside>
+    ${chatThread(ch)}
+  </div>`;
+}
+function afterMessages() { UNREAD[state.chan] = 0; scrollChats(); renderNav(); }
+function openChanDialog() {
+  openDlg(`<h2>New space</h2>
+    <label class="fld">Name<input name="name" placeholder="e.g. q4-campaign"></label>
+    <div class="fld-row"><label class="fld">Type<select name="kind"><option value="team">Team space</option><option value="client">Client space</option></select></label><label class="fld">Client<select name="client"><option value="">—</option>${CLIENTS.map(c => `<option value="${c.id}">${esc(c.name)}</option>`).join('')}</select></label></div>
+    <label class="fld">Topic<input name="topic" placeholder="What is this space for?"></label>
+    <div class="err" hidden></div><div class="acts"><button class="btn" type="button" data-close>Cancel</button><button class="btn primary" type="submit">Create space</button></div>`,
+    f => {
+      const name = f.name.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      if (!name) return 'Give the space a name.';
+      if (f.kind.value === 'client' && !f.client.value) return 'Pick which client this space is for.';
+      const rec = { id: 's-' + name + '-' + Date.now().toString(36), name, kind: f.kind.value, client: f.kind.value === 'client' ? f.client.value : undefined, topic: f.topic.value.trim() };
+      CHANNELS.push(rec); store('channels', CHANNELS.filter(c => c.id.startsWith('s-'))); state.chan = rec.id; toast(`#${name} created`); go('messages');
+    });
+}
+
+/* =====================================================================
+   VIEW: FINANCE (tabs: overview, invoices, bills)
+   ===================================================================== */
+function vFinanceTabs() {
+  const t = state.finTab;
+  const sent = INVOICES.filter(i => i.status === 'sent'), od = sent.filter(i => i.due < T);
+  let body;
+  if (t === 'overview') body = vFinanceOverview();
+  else if (t === 'invoices') {
+    const f = state.invFilter;
+    const list = INVOICES.filter(i => (!f.client || i.clientId === f.client) && (!f.status || (f.status === 'overdue' ? i.status === 'sent' && i.due < T : i.status === f.status))).sort((a, b) => b.issued - a.issued || b.no.localeCompare(a.no));
+    const paid30 = INVOICES.filter(i => i.status === 'paid' && (i.paidOn || 0) >= T - 29);
+    body = `<div class="stack"><div class="kpis">
+        ${kpi({ ic: 'arrowIn', label: 'Outstanding', value: moneyK(sum(sent.map(invTotal))), foot: `${sent.length} invoices sent` })}
+        ${kpi({ ic: 'alert', label: 'Overdue', value: `<span style="color:var(--crit-ink)">${moneyK(sum(od.map(invTotal)))}</span>`, d: od.length ? pill('crit', `${od.length} invoices`) : pill('good', 'None') })}
+        ${kpi({ ic: 'check', label: 'Paid, last 30 days', value: moneyK(sum(paid30.map(invTotal))), foot: `${paid30.length} invoices` })}
+        ${kpi({ ic: 'file', label: 'Drafts', value: INVOICES.filter(i => i.status === 'draft').length, foot: 'not sent yet' })}
+      </div>
+      <article class="card"><div class="toolbar">
+        <select id="ivClient" aria-label="Client"><option value="">All clients</option>${CLIENTS.map(c => `<option value="${c.id}" ${f.client === c.id ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select>
+        <select id="ivStatus" aria-label="Status"><option value="">All statuses</option>${[['draft', 'Draft'], ['sent', 'Sent'], ['overdue', 'Overdue'], ['paid', 'Paid']].map(([k, l]) => `<option value="${k}" ${f.status === k ? 'selected' : ''}>${l}</option>`).join('')}</select>
+        <button class="btn primary" data-newinv="">+ New invoice</button></div>
+        ${invoiceTable(list)}</article></div>`;
+  } else {
+    const pay = sum(PAYABLES.map(p => p.amt));
+    body = `<article class="card"><div class="card-h"><h3>Bills to pay</h3><span class="sub">${money(pay)} total</span></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Payee</th><th>Category</th><th>Status</th><th class="r">Amount</th></tr></thead><tbody>
+      ${[...PAYABLES].sort((a, b) => a.due - b.due).map(p => `<tr><td><div class="who">${av(p.vendor)}<div style="min-width:0"><b>${esc(p.vendor)}</b><small>due ${fmtDay(p.due)}</small></div></div></td><td>${pill('neutral', p.cat)}</td><td>${dueChip(p.due)}</td><td class="r"><b style="font-weight:600">${money(p.amt)}</b></td></tr>`).join('')}
+      </tbody></table></div></article>`;
+  }
+  return `<div class="stack">${tabs('finTab', [['overview', 'Overview'], ['invoices', 'Invoices', od.length], ['bills', 'Bills']])}${body}</div>`;
+}
+function afterFinanceTabs() { if (state.finTab === 'overview') afterFinance(); }
+
+/* =====================================================================
+   VIEW: TEAM & ACCESS
+   ===================================================================== */
+function vTeam() {
+  return `<div class="stack">
+    <div class="grid">
+      <article class="card c8"><div class="card-h"><h3>Invite someone</h3><span class="sub">They get an email link to set a password</span></div>
+        <form class="toolbar" id="inviteForm"><input name="name" placeholder="Full name" aria-label="Full name" style="max-width:200px"><input name="email" type="email" placeholder="name@tentcomm.com" aria-label="Email"><select name="role" aria-label="Role">${Object.keys(ROLES).filter(r => r !== 'Owner').map(r => `<option ${r === 'Staff' ? 'selected' : ''}>${r}</option>`).join('')}</select><button class="btn primary" type="submit">Send invite</button></form>
+      </article>
+      <article class="card c4"><div class="card-h"><h3>Roles</h3></div><div class="list">${Object.entries(ROLES).map(([r, v]) => `<div class="row"><b style="font-weight:500">${r}</b><span class="sm-muted" style="text-align:right">${v.desc}</span></div>`).join('')}</div></article>
+    </div>
+    <article class="card"><div class="card-h"><h3>Team members</h3><span class="sub">Tick the sections each person can open. Use Preview to see the app as them.</span></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Person</th><th>Role</th><th>Can open</th><th>Status</th><th></th></tr></thead><tbody>
+      ${USERS.map(u => `<tr><td><div class="who">${av(u.name === 'You' ? 'Chief Executive' : u.name)}<div style="min-width:0"><b>${esc(u.name)}</b><small>${esc(u.title)} · ${esc(u.email)}</small></div></div></td>
+        <td><select class="sel-sm" data-role="${u.id}" ${u.role === 'Owner' ? 'disabled' : ''} aria-label="Role for ${attr(u.name)}">${Object.keys(ROLES).filter(r => u.role === 'Owner' || r !== 'Owner').map(r => `<option ${r === u.role ? 'selected' : ''}>${r}</option>`).join('')}</select></td>
+        <td><div class="mchips">${MODULES.map(([k, l]) => `<label class="mchip"><input type="checkbox" data-mod="${u.id}|${k}" ${u.modules.includes(k) ? 'checked' : ''} ${u.role === 'Owner' ? 'disabled' : ''}>${l}</label>`).join('')}</div></td>
+        <td>${pill(u.status === 'Active' ? 'good' : u.status === 'Invited' ? 'warn' : 'neutral', u.status)}</td>
+        <td class="r" style="white-space:nowrap">${u.role !== 'Owner' ? `<button class="btn sm" data-viewas="${u.id}">Preview</button> <button class="btn sm" data-ustatus="${u.id}">${u.status === 'Deactivated' ? 'Reactivate' : 'Deactivate'}</button>` : ''}</td></tr>`).join('')}
+      </tbody></table></div></article>
+    <article class="card"><div class="card-h"><h3>Client guests</h3><span class="sub">Client contacts who can open their portal or chat in their client space</span></div>
+      <div class="tbl-wrap"><table><thead><tr><th>Contact</th><th>Client</th><th>Portal</th><th>Chat</th><th></th></tr></thead><tbody>
+      ${GUESTS.map((g, k) => { const c = clientById(g.client); return `<tr><td><div class="who">${av(g.name)}<div style="min-width:0"><b>${esc(g.name)}</b><small>${esc(g.role)} · ${esc(g.email)}</small></div></div></td><td><span class="who">${logoSq(c, 'sm')}${esc(c.name)}</span></td>
+        <td><label class="switch"><input type="checkbox" data-guest="${k}|portal" ${g.portal ? 'checked' : ''}> ${g.portal ? 'On' : 'Off'}</label></td><td><label class="switch"><input type="checkbox" data-guest="${k}|chat" ${g.chat ? 'checked' : ''}> ${g.chat ? 'On' : 'Off'}</label></td>
+        <td class="r"><button class="btn sm" data-go="portal.${c.id}">Preview portal</button></td></tr>`; }).join('')}
+      </tbody></table></div></article>
+  </div>`;
+}
+
+/* =====================================================================
+   SOCIAL (works for Tent Communications or any client account)
+   ===================================================================== */
+const POST_TITLES = ['Behind the scenes: our team at the expo', 'Client story: 3x leads in 60 days', 'Product walkthrough in 45 seconds', '5 mistakes to avoid this quarter', 'Meet the team: operations', 'Live Q&A replay', 'Before/after: website revamp', 'We’re hiring! Join the team', 'Weekend offer announcement', 'Founder’s note on our next chapter'];
+function socialPage(A) {
+  const ap = acctPlats(A);
+  const plat = ap.find(p => p.id === state.platform);
+  const sel = plat ? [plat] : ap;
+  const pv = prev(), t = socialTotals(sel, state.start, state.end, A), tp = socialTotals(sel, pv.s, pv.e, A);
+  const b = buckets(), color = sel.length === 1 ? sel[0].color : 'var(--accent)';
+  const perPlat = ap.map(p => ({ p, t: socialTotals([p], state.start, state.end, A), tp: socialTotals([p], pv.s, pv.e, A) }));
+  const totalReach = sum(perPlat.map(x => x.t.reach)) || 1;
+  const posts = [], len = state.end - state.start + 1;
+  for (let k = 0; k < 14; k++) {
+    const p = sel[Math.floor(R('pp', A.id, state.start, state.end, k) * sel.length)];
+    const d = state.start + Math.floor(R('pd', A.id, state.start, k) * len);
+    const reach = Math.round((socialDay(p, d, A).reach || p.reach * 0.3 * A.scale) * (0.4 + 1.6 * R('pr', A.id, d, k)));
+    posts.push({ p, d, title: POST_TITLES[Math.floor(R('pt', A.id, d, k) * POST_TITLES.length)], reach, eng: Math.round(reach * p.er * (0.8 + R('pe', k))) });
+  }
+  const top = [...new Map(posts.sort((a, c) => a.reach - c.reach).map(x => [x.title, x])).values()].sort((a, c) => c.reach - a.reach).slice(0, 6);
+  return `<div class="stack">
+    <div class="bar"><div class="chips" role="group" aria-label="Platform">
+      <button class="chip-btn" data-plat="all" aria-pressed="${!plat}">All platforms</button>
+      ${ap.map(p => `<button class="chip-btn" data-plat="${p.id}" aria-pressed="${plat === p}">${sw(p.color)}${p.name}</button>`).join('')}
+    </div>${state.view === 'social' ? `<select id="socAcct" class="sel-sm" aria-label="Account"><option value="tent">Tent Communications</option>${CLIENTS.map(c => `<option value="${c.id}" ${state.socialAcct === c.id ? 'selected' : ''}>${esc(c.name)}</option>`).join('')}</select>` : ''}</div>
+    <div class="kpis six">
+      ${kpi({ ic: 'users', label: 'Followers', value: fmtK(t.followers), d: `<span class="delta up">+${fmtN(t.newFollowers)}</span>`, foot: rangeLabel() })}
+      ${kpi({ ic: 'userPlus', label: 'New followers', value: fmtN(t.newFollowers), d: delta(t.newFollowers, tp.newFollowers), spark: b.split(d => sum(sel.map(p => socialDay(p, d, A).newFollowers))), color })}
+      ${kpi({ ic: 'eye', label: 'Reach', value: fmtK(t.reach), d: delta(t.reach, tp.reach), spark: b.split(d => sum(sel.map(p => socialDay(p, d, A).reach))), color })}
+      ${kpi({ ic: 'layers', label: 'Impressions', value: fmtK(t.impressions), d: delta(t.impressions, tp.impressions), spark: b.split(d => sum(sel.map(p => socialDay(p, d, A).impressions))), color })}
+      ${kpi({ ic: 'heart', label: 'Engagement rate', value: pct(t.er, 2), d: delta(t.er, tp.er), foot: fmtK(t.engagements) + ' engagements' })}
+      ${kpi({ ic: 'send', label: 'Posts published', value: fmtN(t.posts), d: delta(t.posts, tp.posts), foot: fmtK(t.clicks) + ' link clicks' })}
+    </div>
+    <div class="grid">
+      <article class="card c8"><div class="card-h"><h3>Reach ${sel.length > 1 ? 'by platform' : 'on ' + sel[0].name}</h3><span class="sub">${byUnit(b)}</span></div>${legend(sel.map(p => ({ name: p.name, color: p.color })))}<div class="chart" data-chart="soc-reach"></div></article>
+      <article class="card c4"><div class="card-h"><h3>Share of reach</h3><span class="sub">${rangeLabel()}</span></div>
+        <div class="list">${[...perPlat].sort((a, c) => c.t.reach - a.t.reach).map(x => `<div style="display:flex;flex-direction:column;gap:8px"><div class="row" style="font-size:13.5px"><span style="display:inline-flex;align-items:center;gap:8px">${sw(x.p.color)}${x.p.name}</span><span class="num"><b style="font-weight:600">${fmtK(x.t.reach)}</b> <span style="color:var(--muted)">${pct(x.t.reach / totalReach, 0)}</span></span></div>${hbar([{ name: x.p.name, color: x.p.color, v: x.t.reach, label: 'Reach', fmt: fmtN }, { color: 'transparent', v: totalReach - x.t.reach }], totalReach)}</div>`).join('')}</div></article>
+    </div>
+    <article class="card"><div class="card-h"><h3>Platform performance</h3><span class="sub">Select a platform to focus</span></div>
+      <div class="plat-grid">${perPlat.map(x => `<button class="plat ${plat === x.p ? 'on' : ''}" data-plat="${plat === x.p ? 'all' : x.p.id}"><div class="plat-h">${sw(x.p.color)}${x.p.name}${delta(x.t.reach, x.tp.reach)}</div>
+        <div class="stats"><div><span>Followers</span><b>${fmtK(x.t.followers)}</b></div><div><span>New</span><b>+${fmtN(x.t.newFollowers)}</b></div><div><span>Reach</span><b>${fmtK(x.t.reach)}</b></div><div><span>Eng. rate</span><b>${pct(x.t.er, 2)}</b></div><div><span>Posts</span><b>${x.t.posts}</b></div><div><span>Clicks</span><b>${fmtK(x.t.clicks)}</b></div></div>
+        ${sparkline(b.split(d => socialDay(x.p, d, A).reach), x.p.color, '')}</button>`).join('')}</div></article>
+    <div class="grid">
+      <article class="card c7"><div class="card-h"><h3>New followers</h3><span class="sub">${byUnit(b)}</span></div>${legend(sel.map(p => ({ name: p.name, color: p.color })))}<div class="chart" data-chart="soc-nf"></div></article>
+      <article class="card c5"><div class="card-h"><h3>Top posts</h3><span class="sub">by reach</span></div>
+        <div class="tbl-wrap"><table><thead><tr><th>Post</th><th class="r">Reach</th><th class="r">Eng.</th></tr></thead><tbody>
+        ${top.map(x => `<tr><td><div style="font-weight:500">${esc(x.title)}</div><div class="sm-muted" style="display:flex;align-items:center;gap:6px">${sw(x.p.color)}${x.p.name} · ${relDay(x.d)}</div></td><td class="r">${fmtK(x.reach)}</td><td class="r">${fmtN(x.eng)}</td></tr>`).join('')}
+        </tbody></table></div></article>
+    </div>
+  </div>`;
+}
+function afterSocialPage(A) {
+  const ap = acctPlats(A), plat = ap.find(p => p.id === state.platform), sel = plat ? [plat] : ap, b = buckets();
+  lineChart(q('[data-chart="soc-reach"]'), { labels: b.labels, series: sel.map(p => ({ name: p.name, color: p.color, values: b.split(d => socialDay(p, d, A).reach) })), h: 270 });
+  barChart(q('[data-chart="soc-nf"]'), { labels: b.labels, stacked: true, series: sel.map(p => ({ name: p.name, color: p.color, values: b.split(d => socialDay(p, d, A).newFollowers) })), h: 230, fmt: v => fmtN(v) });
+}
+const vSocial = () => socialPage(acctOf(state.socialAcct));
+const afterSocial = () => afterSocialPage(acctOf(state.socialAcct));
+
+/* overview additions */
+function overviewAgency() {
+  const today = POSTS.filter(p => p.day === T).sort(postSort);
+  return `<div class="grid" style="gap:16px">
+    <article class="card c6"><div class="card-h"><h3>${icon('calendar')}Publishing today</h3><button class="go" data-go="content" aria-label="Open content">${icon('arrowUR')}</button></div>${postList(today.slice(0, 5))}</article>
+    <article class="card c6"><div class="card-h"><h3>${icon('box')}Client health</h3><button class="go" data-go="clients" aria-label="Open clients">${icon('arrowUR')}</button></div>
+      <div class="list">${CLIENTS.map(c => ({ c, h: clientHealth(c) })).sort((a, b) => ({ crit: 0, warn: 1, good: 2 })[a.h.c] - ({ crit: 0, warn: 1, good: 2 })[b.h.c]).slice(0, 6).map(({ c, h }) => `<button class="snap" data-go="client.${c.id}">${logoSq(c, 'sm')}<span class="l"><span style="color:var(--ink)">${esc(c.name)}</span> <span class="sm-muted">· ${esc(h.why)}</span></span>${pill(h.c, h.n)}</button>`).join('')}</div></article>
+  </div>`;
+}
+
+/* =====================================================================
    Router + render
    ===================================================================== */
 const q = s => document.querySelector(s);
-const RENDER = { overview: [vOverview, afterOverview], social: [vSocial, afterSocial], sales: [vSales, afterSales], tasks: [vTasks, null], hr: [vHR, afterHR], finance: [vFinance, afterFinance] };
+const VIEWS = {
+  overview: { name: 'Dashboard', title: 'Dashboard', ic: 'overview' },
+  clients: { name: 'Clients', title: 'Clients', ic: 'box' },
+  content: { name: 'Content', title: 'Content & publishing', ic: 'calendar', noRange: true },
+  influencers: { name: 'Influencers', title: 'Influencers & campaigns', ic: 'star', noRange: true },
+  tasks: { name: 'Tasks', title: 'Tasks & projects', ic: 'tasks' },
+  messages: { name: 'Messages', title: 'Messages', ic: 'chat', noRange: true },
+  social: { name: 'Social media', title: 'Social media', ic: 'social' },
+  sales: { name: 'Sales & leads', title: 'Sales & leads', ic: 'sales' },
+  hr: { name: 'People', title: 'People & attendance', ic: 'hr' },
+  finance: { name: 'Finance', title: 'Finance & invoicing', ic: 'finance' },
+  team: { name: 'Team & access', title: 'Team & access', ic: 'shield', noRange: true },
+  client: { hidden: true }, portal: { hidden: true }, campaign: { hidden: true, noRange: true }, influencer: { hidden: true, noRange: true },
+};
+const NAV = [['Overview', ['overview']], ['Work', ['clients', 'content', 'influencers', 'tasks', 'messages']], ['Company', ['social', 'sales', 'hr', 'finance']], ['Admin', ['team']]];
+function renderNav() {
+  const counts = {
+    tasks: overdueTasks().length, hr: pendingLeaves().length, finance: RECEIVABLES.filter(r => r.due < T).length,
+    content: POSTS.filter(p => p.status === 'review').length, messages: sum(Object.values(UNREAD)), clients: CLIENTS.filter(c => clientHealth(c).c === 'crit').length,
+  };
+  const cur = PARENT[state.view] || state.view;
+  q('#nav').innerHTML = NAV.map(([label, ids]) => {
+    const items = ids.filter(allowed);
+    return items.length ? `<div class="nav-group"><div class="nav-label">${label}</div>${items.map(id => { const v = VIEWS[id]; return `<a href="#${id}" data-view="${id}" ${cur === id ? 'aria-current="page"' : ''}>${icon(v.ic)}${v.name}${counts[id] ? `<span class="count ${id === 'messages' || id === 'content' ? 'soft' : ''}">${counts[id]}</span>` : ''}</a>`; }).join('')}</div>` : '';
+  }).join('');
+}
+const RENDER = {
+  overview: [vOverview, afterOverview], social: [vSocial, afterSocial], sales: [vSales, afterSales], tasks: [vTasks, null], hr: [vHR, afterHR], finance: [vFinanceTabs, afterFinanceTabs],
+  clients: [vClients, null], client: [() => vClient(state.param), () => afterClient(state.param)], portal: [() => vPortal(state.param), null],
+  content: [vContent, null], influencers: [vInfluencers, null], campaign: [() => vCampaign(state.param), null], influencer: [() => vInfluencer(state.param), null],
+  messages: [vMessages, afterMessages], team: [vTeam, null],
+};
+function viewTitle() {
+  if (state.view === 'client') return (clientById(state.param) || {}).name || 'Client';
+  if (state.view === 'portal') return 'Client portal';
+  if (state.view === 'campaign') return (campById(state.param) || {}).name || 'Campaign';
+  if (state.view === 'influencer') return (inflById(state.param) || {}).name || 'Influencer';
+  return VIEWS[state.view].title;
+}
 function render(focusId) {
   applyRange();
-  q('#viewTitle').textContent = VIEWS[state.view].title;
+  q('#viewTitle').textContent = viewTitle();
   q('#synced').textContent = `Updated ${NOW.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })} · ${fmtDay(T, { weekday: 'long', month: 'long', day: 'numeric' })}`;
   q('#rangeNote').textContent = state.range === 'custom' ? '' : `${fmtDay(state.start, { month: 'short', day: 'numeric' })}${state.start !== state.end ? ' – ' + fmtDay(state.end, { month: 'short', day: 'numeric' }) : ''} · compared ${vsLabel().replace('vs ', 'with ')}`;
   document.querySelectorAll('#rangeSeg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.range === state.range));
   q('#customBox').hidden = state.range !== 'custom';
   if (state.range === 'custom') { q('#cStart').value = toISO(state.start); q('#cEnd').value = toISO(state.end); }
+  q('.bar-l').hidden = !!VIEWS[state.view].noRange;
+  const u = viewer();
+  q('#viewAsBar').innerHTML = u ? `<div class="viewas">${icon('eye')}<span>Previewing as <b>${esc(u.name)}</b> (${u.role}). They see only: ${u.modules.map(m => MODULES.find(x => x[0] === m)[1]).join(', ') || 'nothing'}.</span><button class="btn sm" data-exitviewas>Exit preview</button></div>` : '';
   renderNav();
-  const [view, after] = RENDER[state.view];
   const el = q('#view');
-  el.innerHTML = view();
-  el.firstElementChild.classList.add('view-in');
-  after && after();
+  if (!allowed(state.view)) {
+    el.innerHTML = `<article class="card view-in" style="align-items:center;text-align:center;padding:48px 20px">${icon('shield')}<h3 style="margin:0">No access</h3><div class="sm-muted">${esc(u.name)} can't open ${esc(VIEWS[PARENT[state.view] || state.view].name || 'this page')}. Change it in Team & access.</div></article>`;
+  } else {
+    const [view, after] = RENDER[state.view];
+    el.innerHTML = view();
+    el.firstElementChild && el.firstElementChild.classList.add('view-in');
+    after && after();
+  }
   if (focusId) { const f = document.getElementById(focusId); if (f) { f.focus(); if (f.setSelectionRange) f.setSelectionRange(f.value.length, f.value.length); } }
   hideTip();
 }
-function go(view) { if (!VIEWS[view]) view = 'overview'; state.view = view; if (location.hash !== '#' + view) history.replaceState(null, '', '#' + view); render(); window.scrollTo({ top: 0 }); }
+function go(target) {
+  let [view, param] = String(target).split('.');
+  if (!VIEWS[view]) view = 'overview';
+  if (view === 'client' && state.param !== param) state.clientTab = 'overview';
+  if (view !== state.view || param !== state.param) state.platform = 'all';
+  state.view = view; state.param = param || null;
+  const h = '#' + view + (param ? '.' + param : '');
+  if (location.hash !== h) history.replaceState(null, '', h);
+  q('#createMenu').hidden = true;
+  render(); window.scrollTo({ top: 0 });
+}
+function copyText(text, btn) {
+  const done = () => toast('Copied');
+  try { navigator.clipboard.writeText(text).then(done, () => selectFallback(btn)); } catch (e) { selectFallback(btn); }
+}
+function selectFallback(btn) { const code = btn && btn.parentElement.querySelector('code, .sel'); if (code) { const r = document.createRange(); r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Press Ctrl+C to copy'); } }
 
 document.addEventListener('click', e => {
-  const g = e.target.closest('[data-go]'); if (g) { go(g.dataset.go); return; }
-  const n = e.target.closest('#nav a'); if (n) { e.preventDefault(); go(n.dataset.view); return; }
-  const r = e.target.closest('#rangeSeg button');
+  const t = e.target;
+  if (!t.closest('#createWrap')) q('#createMenu').hidden = true;
+  if (t.closest('#createBtn')) { q('#createMenu').hidden = !q('#createMenu').hidden; return; }
+  const cr = t.closest('[data-create]');
+  if (cr) { q('#createMenu').hidden = true; ({ task: () => openTaskDialog(), post: () => openPostDialog(null), invoice: () => openInvoiceDialog(), influencer: () => openInflDialog(), campaign: () => openCampDialog(), space: () => openChanDialog() })[cr.dataset.create](); return; }
+  const g = t.closest('[data-go]'); if (g) { go(g.dataset.go); return; }
+  const n = t.closest('#nav a'); if (n) { e.preventDefault(); go(n.dataset.view); return; }
+  const r = t.closest('#rangeSeg button');
   if (r) { state.range = r.dataset.range; if (r.dataset.range !== 'custom') store('range', state.range); else if (!store('custom')) store('custom', { s: T - 13, e: T }); render(); return; }
-  const ov = e.target.closest('[data-ov]'); if (ov) { state.ovMetric = ov.dataset.ov; render(); return; }
-  const p = e.target.closest('[data-plat]'); if (p) { state.platform = p.dataset.plat; render(); return; }
-  const lv = e.target.closest('[data-leave]');
+  const tb = t.closest('[data-tab]'); if (tb) { state[tb.dataset.tab] = tb.dataset.val; render(); return; }
+  const ov = t.closest('[data-ov]'); if (ov) { state.ovMetric = ov.dataset.ov; render(); return; }
+  const p = t.closest('[data-plat]'); if (p) { state.platform = p.dataset.plat; render(); return; }
+  const cal = t.closest('[data-cal]');
+  if (cal) { const v = +cal.dataset.cal; if (!v) state.calMonth = { y: NOW.getFullYear(), m: NOW.getMonth() }; else { const d = new Date(state.calMonth.y, state.calMonth.m + v, 1); state.calMonth = { y: d.getFullYear(), m: d.getMonth() }; } render(); return; }
+  const ap = t.closest('[data-approve]'); if (ap) { setPostStatus(ap.dataset.approve, 'scheduled'); return; }
+  const chg = t.closest('[data-changes]'); if (chg) { setPostStatus(chg.dataset.changes, 'changes'); return; }
+  const po = t.closest('[data-post]'); if (po) { openPostDialog(POSTS.find(x => x.id === po.dataset.post)); return; }
+  const np = t.closest('[data-newpost]'); if (np) { openPostDialog(null, np.dataset.newpost || state.contentFilter.acct || undefined); return; }
+  const nt = t.closest('[data-newtask]'); if (nt) { openTaskDialog(nt.dataset.newtask); return; }
+  const ni = t.closest('[data-newinv]'); if (ni) { openInvoiceDialog(ni.dataset.newinv || state.invFilter.client || undefined); return; }
+  const iv = t.closest('[data-inv]'); if (iv) { openInvoiceView(iv.dataset.inv); return; }
+  if (t.closest('[data-newinfl]')) { openInflDialog(); return; }
+  const nc = t.closest('[data-newcamp]'); if (nc) { openCampDialog(nc.dataset.newcamp); return; }
+  if (t.closest('[data-newchan]')) { openChanDialog(); return; }
+  const ch = t.closest('[data-chan]:not(form)'); if (ch) { state.chan = ch.dataset.chan; render(); return; }
+  const sh = t.closest('[data-share]'); if (sh) { const c = clientById(sh.dataset.share); q('#shareSlot').innerHTML = shareBox(portalUrl(c), `Example link. ${esc(c.contact.name)} sees reports, content approvals and invoices, never internal tasks or margins.`); return; }
+  const sc = t.closest('[data-sharecamp]'); if (sc) { const x = campById(sc.dataset.sharecamp); q('#shareSlot').innerHTML = shareBox(`https://ops.tentcomm.com/report/${x.id}-${Math.floor(R('rt', x.id) * 1e10).toString(36)}`, 'Example link to a read-only, live campaign report for the client.'); return; }
+  const cp = t.closest('[data-copy]'); if (cp) { copyText(cp.dataset.copy, cp); return; }
+  const va = t.closest('[data-viewas]'); if (va) { state.viewAs = va.dataset.viewas; go('overview'); return; }
+  if (t.closest('[data-exitviewas]')) { state.viewAs = null; go('team'); return; }
+  const us = t.closest('[data-ustatus]'); if (us) { const u = USERS.find(x => x.id === us.dataset.ustatus); u.status = u.status === 'Deactivated' ? 'Active' : 'Deactivated'; saveUsers(); toast(`${u.name} ${u.status === 'Active' ? 'reactivated' : 'deactivated'}`); render(); return; }
+  const lv = t.closest('[data-leave]');
   if (lv) { leaveDecisions[lv.dataset.leave] = lv.dataset.dec; store('leaves', leaveDecisions); const l = LEAVES.find(x => x.id === lv.dataset.leave); toast(`${l.name}'s ${l.type.toLowerCase()} ${lv.dataset.dec}`); render(); return; }
-  const un = e.target.closest('[data-undo]'); if (un) { delete leaveDecisions[un.dataset.undo]; store('leaves', leaveDecisions); render(); return; }
-  const per = e.target.closest('[data-person]'); if (per) { state.taskFilter.assignee = per.dataset.person; render(); q('.board').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
-  if (e.target.closest('#fClear')) { state.taskFilter = { assignee: '', status: '', q: '' }; render(); return; }
-  if (e.target.closest('#newTask') || e.target.closest('#qaTask')) { openTaskDialog(); return; }
+  const un = t.closest('[data-undo]'); if (un) { delete leaveDecisions[un.dataset.undo]; store('leaves', leaveDecisions); render(); return; }
+  const per = t.closest('[data-person]'); if (per) { state.taskFilter.assignee = per.dataset.person; render(); q('.board').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+  if (t.closest('#fClear')) { state.taskFilter = { assignee: '', status: '', q: '', client: '' }; render(); return; }
+  if (t.closest('#newTask') || t.closest('#qaTask')) { openTaskDialog(); return; }
 });
 document.addEventListener('change', e => {
-  const m = e.target.closest('[data-move]');
-  if (m) { const t = TASKS.find(x => x.id === m.dataset.move); t.status = m.value; t.doneAt = m.value === 'done' ? T : null; saveTasks(); toast(`Moved to ${STATUSES.find(s => s.id === m.value).name}`); render(); return; }
-  if (e.target.id === 'fAssignee') { state.taskFilter.assignee = e.target.value; render(); }
-  if (e.target.id === 'fStatus') { state.taskFilter.status = e.target.value; render(); }
+  const t = e.target;
+  const m = t.closest('[data-move]');
+  if (m) { const k = TASKS.find(x => x.id === m.dataset.move); k.status = m.value; k.doneAt = m.value === 'done' ? T : null; saveTasks(); toast(`Moved to ${STATUSES.find(s => s.id === m.value).name}`); render(); return; }
+  const ids = { fAssignee: ['taskFilter', 'assignee'], fStatus: ['taskFilter', 'status'], fClient: ['taskFilter', 'client'], cfAcct: ['contentFilter', 'acct'], cfStatus: ['contentFilter', 'status'], ifNiche: ['inflFilter', 'niche'], ifPlat: ['inflFilter', 'plat'], ivClient: ['invFilter', 'client'], ivStatus: ['invFilter', 'status'] };
+  if (ids[t.id]) { state[ids[t.id][0]][ids[t.id][1]] = t.value; render(); return; }
+  if (t.id === 'socAcct') { state.socialAcct = t.value; state.platform = 'all'; render(); return; }
+  if (t.dataset.role) { const u = USERS.find(x => x.id === t.dataset.role); u.role = t.value; u.modules = [...ROLES[t.value].mods]; saveUsers(); toast(`${u.name} is now ${t.value}`); render(); return; }
+  if (t.dataset.mod) { const [id, mod] = t.dataset.mod.split('|'), u = USERS.find(x => x.id === id); u.modules = t.checked ? [...new Set([...u.modules, mod])] : u.modules.filter(x => x !== mod); saveUsers(); toast(`${u.name}: ${MODULES.find(x => x[0] === mod)[1]} ${t.checked ? 'on' : 'off'}`); return; }
+  if (t.dataset.guest) { const [k, key] = t.dataset.guest.split('|'); GUESTS[+k][key] = t.checked; saveUsers(); render(); return; }
 });
-document.addEventListener('input', e => { if (e.target.id === 'fQ') { state.taskFilter.q = e.target.value; render('fQ'); } });
+document.addEventListener('input', e => {
+  if (e.target.id === 'fQ') { state.taskFilter.q = e.target.value; render('fQ'); }
+  if (e.target.id === 'ifQ') { state.inflFilter.q = e.target.value; render('ifQ'); }
+});
+document.addEventListener('submit', e => {
+  const f = e.target;
+  if (f.classList.contains('composer')) {
+    e.preventDefault(); const v = f.m.value.trim(); if (!v) return;
+    sendMsg(f.dataset.chan, v); render(); const ta = q('.composer textarea'); ta && ta.focus(); return;
+  }
+  if (f.id === 'inviteForm') {
+    e.preventDefault();
+    const name = f.name.value.trim(), email = f.email.value.trim();
+    if (!name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { toast('Add a name and a valid email'); return; }
+    USERS.push({ id: 'u-' + Date.now(), name, email, title: f.role.value, role: f.role.value, modules: [...ROLES[f.role.value].mods], status: 'Invited' });
+    saveUsers(); toast(`Invite sent to ${email}`); render();
+  }
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey && e.target.matches('.composer textarea')) { e.preventDefault(); e.target.form.requestSubmit(); }
+  if (e.key === 'Escape') q('#createMenu').hidden = true;
+});
 q('#searchForm').addEventListener('submit', e => { e.preventDefault(); state.taskFilter.q = q('#globalSearch').value.trim(); q('#globalSearch').value = ''; go('tasks'); });
 q('#customBox').addEventListener('submit', e => {
   e.preventDefault();
@@ -1416,11 +2382,13 @@ q('#cStart').max = q('#cEnd').max = toISO(T);
 const dlg = q('#taskDlg');
 q('#tAssignee').innerHTML = TEAM.map(n => `<option>${n}</option>`).join('');
 q('#tProject').innerHTML = PROJECTS.map(n => `<option>${n}</option>`).join('');
+q('#tClient').innerHTML = [ACCT_TENT, ...CLIENTS].map(a => `<option value="${a.id}">${esc(a.name)}</option>`).join('');
 q('#tStatus').innerHTML = STATUSES.slice(0, 3).map(s => `<option value="${s.id}">${s.name}</option>`).join('');
-function openTaskDialog() {
+function openTaskDialog(presetClient) {
   q('#taskForm').reset(); q('#tErr').hidden = true;
   q('#tDue').value = toISO(T + 3);
   if (state.taskFilter.assignee) q('#tAssignee').value = state.taskFilter.assignee;
+  q('#tClient').value = presetClient || state.taskFilter.client || 'tent';
   if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', '');
   q('#tTitle').focus();
 }
@@ -1430,13 +2398,13 @@ q('#taskForm').addEventListener('submit', e => {
   const title = q('#tTitle').value.trim();
   if (!title) { q('#tErr').textContent = 'Give the task a title.'; q('#tErr').hidden = false; return; }
   if (!q('#tDue').value) { q('#tErr').textContent = 'Pick a due date.'; q('#tErr').hidden = false; return; }
-  TASKS.unshift({ id: 't' + Date.now(), title, assignee: q('#tAssignee').value, project: q('#tProject').value, priority: q('#tPriority').value, status: q('#tStatus').value, due: fromISO(q('#tDue').value), created: T, doneAt: null });
+  TASKS.unshift({ id: 't' + Date.now(), title, assignee: q('#tAssignee').value, project: q('#tProject').value, client: q('#tClient').value, priority: q('#tPriority').value, status: q('#tStatus').value, due: fromISO(q('#tDue').value), created: T, doneAt: null });
   saveTasks(); dlg.close(); toast('Task created'); render();
 });
 
-let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { const a = RENDER[state.view][1]; a && a(); }, 120); });
+let rz; window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (!allowed(state.view)) return; const a = RENDER[state.view][1]; a && a(); }, 120); });
 window.addEventListener('hashchange', () => go(location.hash.slice(1)));
-state.view = VIEWS[location.hash.slice(1)] ? location.hash.slice(1) : 'overview';
+{ const [v, p] = location.hash.slice(1).split('.'); state.view = VIEWS[v] ? v : 'overview'; state.param = p || null; }
 render();
 </script>
 </body>
